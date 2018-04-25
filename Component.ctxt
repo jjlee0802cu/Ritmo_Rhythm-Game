@@ -2,6 +2,8 @@
 comment0.target=Component
 comment1.params=s
 comment1.target=void\ main(java.lang.String[])
-comment2.params=g
-comment2.target=void\ paintComponent(java.awt.Graphics)
-numComments=3
+comment2.params=e
+comment2.target=void\ keyPressed(java.awt.event.KeyEvent)
+comment3.params=g
+comment3.target=void\ paintComponent(java.awt.Graphics)
+numComments=4
