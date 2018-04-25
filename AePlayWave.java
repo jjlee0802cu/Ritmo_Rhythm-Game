@@ -1,7 +1,5 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File; 
 import java.io.IOException; 
 import javax.sound.sampled.AudioFormat; 
@@ -12,57 +10,56 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException; 
 import javax.sound.sampled.SourceDataLine; 
 import javax.sound.sampled.UnsupportedAudioFileException; 
- 
+
 public class AePlayWave extends Thread { 
- 
+
     private String filename;
- 
+
     private Position curPosition;
- 
+
     private final int EXTERNAL_BUFFER_SIZE = 524288; // 128Kb 
- 
+
     enum Position { 
         LEFT, RIGHT, NORMAL
     };
- 
+
     public AePlayWave(String wavfile) { 
         filename = wavfile;
         curPosition = Position.NORMAL;
     } 
- 
+
     public AePlayWave(String wavfile, Position p) { 
         filename = wavfile;
         curPosition = p;
     } 
-    
+
     public void keyTyped(KeyEvent e) {
-        int key = e.getKeyCode();
-        if (key == KeyEvent.VK_LEFT) {
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             AePlayWave ae =  new  AePlayWave("Tom1.wav");
             ae.run();
         }
-        if (key == KeyEvent.VK_RIGHT) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             AePlayWave ae =  new  AePlayWave("Hihat.wav");
             ae.run();
         }
-        if (key == KeyEvent.VK_UP) {
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
             AePlayWave ae =  new  AePlayWave("Kick.wav");
             ae.run();
         }
-        if (key == KeyEvent.VK_DOWN) {
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             AePlayWave ae =  new  AePlayWave("Snare.wav");
             ae.run();
         }
     }
- 
+
     public void run() { 
- 
+
         File soundFile = new File(filename);
         if (!soundFile.exists()) { 
             System.err.println("Wave file not found: " + filename);
             return;
         } 
- 
+
         AudioInputStream audioInputStream = null;
         try { 
             audioInputStream = AudioSystem.getAudioInputStream(soundFile);
@@ -73,11 +70,11 @@ public class AePlayWave extends Thread {
             e1.printStackTrace();
             return;
         } 
- 
+
         AudioFormat format = audioInputStream.getFormat();
         SourceDataLine auline = null;
         DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
- 
+
         try { 
             auline = (SourceDataLine) AudioSystem.getLine(info);
             auline.open(format);
@@ -88,20 +85,20 @@ public class AePlayWave extends Thread {
             e.printStackTrace();
             return;
         } 
- 
+
         if (auline.isControlSupported(FloatControl.Type.PAN)) { 
             FloatControl pan = (FloatControl) auline
-                    .getControl(FloatControl.Type.PAN);
+                .getControl(FloatControl.Type.PAN);
             if (curPosition == Position.RIGHT) 
                 pan.setValue(1.0f);
             else if (curPosition == Position.LEFT) 
                 pan.setValue(-1.0f);
         } 
- 
+
         auline.start();
         int nBytesRead = 0;
         byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
- 
+
         try { 
             while (nBytesRead != -1) { 
                 nBytesRead = audioInputStream.read(abData, 0, abData.length);
@@ -115,6 +112,6 @@ public class AePlayWave extends Thread {
             auline.drain();
             auline.close();
         } 
- 
+
     } 
 } 
