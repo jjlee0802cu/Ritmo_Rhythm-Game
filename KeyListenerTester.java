@@ -25,7 +25,7 @@ public class KeyListenerTester extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if (e.getKeyCode() == KeyEvent.VK_Z) {
-            AePlayWave ae =  new  AePlayWave("Tom1.wav");
+            AePlayWave ae =  new  AePlayWave("soft-hitclap.wav");
             ae.run();
         }
         if (e.getKeyCode() == KeyEvent.VK_X) {
@@ -33,7 +33,7 @@ public class KeyListenerTester extends JFrame implements KeyListener {
             ae.run();
         }
         if (e.getKeyCode() == KeyEvent.VK_C) {
-            AePlayWave ae =  new  AePlayWave("Kick.wav");
+            AePlayWave ae =  new  AePlayWave("soft-slidertick.wav");
             ae.run();
         }
         if (e.getKeyCode() == KeyEvent.VK_V) {
