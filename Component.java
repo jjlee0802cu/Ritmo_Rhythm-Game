@@ -11,6 +11,7 @@ public class Component extends JComponent
     static boolean w;
     static boolean e;
     static boolean r;
+    static boolean clear;
     public static void main(String s[]) {
         JFrame f = new JFrame();
         Color background = new Color(0,0,0);
@@ -71,9 +72,16 @@ public class Component extends JComponent
         f.add(component);
         f.setSize(1024, 768);
         f.setVisible(true);
-
-        int[] lanes = {1,2,4,3,1,4,1,2,1,3,2,4};
+        
+        //int[] lanes = new int[100];
+        //for(int i = 0;i<100;i++){
+        //    lanes[i] = (int)(Math.random()*4)+1;
+        //}
+        int[] lanes = {1,2,3,4,12};
         for(int i:lanes){
+            //if(i>=10){
+                //make the rectangles move together
+            //}
             rectangleX=i*100;
             while(true && rectangleY<=768-100){
                 try{
@@ -83,38 +91,39 @@ public class Component extends JComponent
 
                 }
                 f.repaint();
-                rectangleY++;
-
+                rectangleY+=2;
             }
             rectangleY=0;
         }
-
+        clear = true;
     }
 
     public void paintComponent(Graphics g){
         g.setColor(Color.WHITE);
-        g.drawLine(0,768-150,1024,768-150);
-        g.drawLine(100,768-150,100,0);
-        g.drawLine(200,768-150,200,0);
-        g.drawLine(300,768-150,300,0);
-        g.drawLine(400,768-150,400,0);
-        g.drawLine(500,768-150,500,0);
+        g.drawRect(100,768-150,400,20);
+        g.fillRect(100,0,2,768-150);
+        g.fillRect(200,0,2,768-150);
+        g.fillRect(300,0,2,768-150);
+        g.fillRect(400,0,2,768-150);
+        g.fillRect(500,0,2,768-150);
         
-        g.drawRect(rectangleX,rectangleY,100,50);
-        if(fill){g.fillRect(rectangleX,rectangleY,100,50);
-        }
+        g.fillRect(rectangleX,rectangleY,100,20);
+
 
         if(q){
-            g.fillRect(100,768-150,100,50);
+            g.fillRect(100,768-150,100,20);
         }
         if(w){
-            g.fillRect(200,768-150,100,50);
+            g.fillRect(200,768-150,100,20);
         }
         if(e){
-            g.fillRect(300,768-150,100,50);
+            g.fillRect(300,768-150,100,20);
         }
         if(r){
-            g.fillRect(400,768-150,100,50);
+            g.fillRect(400,768-150,100,20);
         }
+        if(clear){g.setColor(Color.black);
+        g.fillRect(100,0,410,768);
+    }   
     }
 }
