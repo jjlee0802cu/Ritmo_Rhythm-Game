@@ -77,12 +77,9 @@ public class Component extends JComponent
         //for(int i = 0;i<100;i++){
         //    lanes[i] = (int)(Math.random()*4)+1;
         //}
-        int[] lanes = {1,2,3,4,12};
+        int[] lanes = {1,2,3,4,12,13,14,23,24,34,123,124,134,234,1234};
         for(int i:lanes){
-            //if(i>=10){
-                //make the rectangles move together
-            //}
-            rectangleX=i*100;
+            lane = i;
             while(true && rectangleY<=768-100){
                 try{
                     Thread.sleep(1);
@@ -107,7 +104,20 @@ public class Component extends JComponent
         g.fillRect(400,0,2,768-150);
         g.fillRect(500,0,2,768-150);
         
-        g.fillRect(rectangleX,rectangleY,100,20);
+        if(lane>1000){
+            g.fillRect(100*(lane%10),rectangleY,100,20);
+            g.fillRect(100*(((int)lane/10)%10),rectangleY,100,20);
+            g.fillRect(100*(((int)lane/100)%10),rectangleY,100,20);
+            g.fillRect(100*(((int)lane/1000)%10),rectangleY,100,20);
+        } else if(lane>100){
+            g.fillRect(100*(lane%10),rectangleY,100,20);
+            g.fillRect(100*(((int)lane/10)%10),rectangleY,100,20);
+            g.fillRect(100*(((int)lane/100)%10),rectangleY,100,20);
+        } else if(lane>10){
+            g.fillRect(100*(lane%10),rectangleY,100,20);
+            g.fillRect(100*(((int)lane/10)%10),rectangleY,100,20);
+        } 
+        else {g.fillRect(lane*100,rectangleY,100,20);}
 
 
         if(q){
