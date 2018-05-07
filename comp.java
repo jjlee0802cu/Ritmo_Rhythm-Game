@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-public class Component extends JComponent
+public class comp extends JComponent
 {
     static int rectangleY;
     static int rectangleX;
@@ -16,7 +16,7 @@ public class Component extends JComponent
         JFrame f = new JFrame();
         Color background = new Color(0,0,0);
         f.getContentPane().setBackground( background );
-        Component component = new Component();
+        Component component = new comp();
 
         f.addKeyListener(new KeyAdapter()
             {
