@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=Block
-<<<<<<< HEAD
 comment1.params=x\ y\ s\ l
 comment1.target=Block(int,\ int,\ int,\ int)
 comment2.params=
@@ -8,8 +7,3 @@ comment2.target=int\ getSpeed()
 comment3.params=
 comment3.target=int\ getLane()
 numComments=4
-=======
-comment1.params=x\ y\ t\ l\ s
-comment1.target=Block(int,\ int,\ int,\ int,\ int)
-numComments=2
->>>>>>> 962c02aa739e1696cb1b0d602964154732efa0e4

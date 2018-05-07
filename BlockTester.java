@@ -11,7 +11,7 @@ public class BlockTester
         Block b2 = new Block(300,0,1,1);
         
         allBlocks.add(b1);
-allBlocks.add(b2);
+        allBlocks.add(b2);
 
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
