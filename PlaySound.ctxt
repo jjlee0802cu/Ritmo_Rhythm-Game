@@ -1,5 +1,12 @@
 #BlueJ class context
 comment0.target=PlaySound
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment0.text=\n\ Handles\ playing,\ stoping,\ and\ looping\ of\ sounds\ for\ the\ game.\n\ @author\ Tyler\ Thomas\n\n
+comment1.params=fileName
+comment1.target=PlaySound(java.lang.String)
+comment2.params=
+comment2.target=void\ play()
+comment3.params=
+comment3.target=void\ loop()
+comment4.params=
+comment4.target=void\ stop()
+numComments=5

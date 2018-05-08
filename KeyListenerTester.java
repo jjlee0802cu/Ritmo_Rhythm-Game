@@ -10,11 +10,11 @@ public class KeyListenerTester extends JFrame implements KeyListener {
     public KeyListenerTester(String s) {
         super(s);
         JPanel p = new JPanel();
-        label = new JLabel("Key Listener!");
+        label = new JLabel("Press the 'z','x','c','v' keys!");
         p.add(label);
         add(p);
         addKeyListener(this);
-        setSize(200, 100);
+        setSize(500, 500);
         setVisible(true);
 
     }
@@ -23,22 +23,25 @@ public class KeyListenerTester extends JFrame implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-
         if (e.getKeyCode() == KeyEvent.VK_Z) {
-            AePlayWave ae =  new  AePlayWave("soft-hitclap.wav");
-            ae.run();
+            PlaySound ms=new PlaySound("soft-hitclap.wav");
+            ms.stop();
+            ms.play();
         }
         if (e.getKeyCode() == KeyEvent.VK_X) {
-            AePlayWave ae =  new  AePlayWave("Hihat.wav");
-            ae.run();
+            PlaySound ms=new PlaySound("Hihat.wav");
+            ms.stop();
+            ms.play();
         }
         if (e.getKeyCode() == KeyEvent.VK_C) {
-            AePlayWave ae =  new  AePlayWave("soft-slidertick.wav");
-            ae.run();
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            ms.stop();
+            ms.play();
         }
         if (e.getKeyCode() == KeyEvent.VK_V) {
-            AePlayWave ae =  new  AePlayWave("Snare.wav");
-            ae.run();
+            PlaySound ms=new PlaySound("Snare.wav");
+            ms.stop();
+            ms.play();
         }
 
     }
@@ -49,9 +52,9 @@ public class KeyListenerTester extends JFrame implements KeyListener {
 
     public static void main(String[] args) {
         new KeyListenerTester("Key Listener Tester");
-        AePlayWave ae =  new  AePlayWave("YMCA oriental remix.wav");
-        ae.run();
-
+        PlaySound psBackground =  new  PlaySound("YMCA oriental remix.wav");
+        psBackground.stop();
+        psBackground.play();
     
     }
 }
