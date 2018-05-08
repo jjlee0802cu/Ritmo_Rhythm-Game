@@ -3,5 +3,5 @@ comment0.target=BlockTester
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment2.params=g
-comment2.target=void\ paint(java.awt.Graphics)
+comment2.target=void\ paintComponent(java.awt.Graphics)
 numComments=3
