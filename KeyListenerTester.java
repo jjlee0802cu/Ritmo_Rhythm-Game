@@ -45,16 +45,40 @@ public class KeyListenerTester extends JFrame implements KeyListener {
         }
 
     }
+    
+    public void anotherKeyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_Z) {
+            PlaySound ms=new PlaySound("soft-hitclap.wav");
+            ms.stop();
+            ms.play();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_X) {
+            PlaySound ms=new PlaySound("Hihat.wav");
+            ms.stop();
+            ms.play();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_C) {
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            ms.stop();
+            ms.play();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_V) {
+            PlaySound ms=new PlaySound("Snare.wav");
+            ms.stop();
+            ms.play();
+        }
 
+    }
+    
     public void keyReleased(KeyEvent e) {
 
     }
 
     public static void main(String[] args) {
         new KeyListenerTester("Key Listener Tester");
-        PlaySound psBackground =  new  PlaySound("YMCA oriental remix.wav");
-        psBackground.stop();
-        psBackground.play();
+        //PlaySound psBackground =  new  PlaySound("YMCA oriental remix.wav");
+        //psBackground.stop();
+        //psBackground.play();
     
     }
 }
