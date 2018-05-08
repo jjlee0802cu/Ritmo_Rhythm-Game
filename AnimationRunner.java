@@ -15,8 +15,8 @@ public class AnimationRunner
           * application file.
           */
          AnimationTemplate app = new AnimationTemplate();
-         int width = 500;
-         int height =500;
+         int width = 1024;
+         int height =768;
          app.debug(width,height);
     }
 }

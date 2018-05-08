@@ -2,18 +2,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.applet.Applet;
 import javax.swing.*;
-/**
- * Write a description of class AnimationTemplate here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class AnimationTemplate extends Applet implements ActionListener
 {
-    /****************************************************
-     * The following code should NOT be changed for any
-     * reason. Doing so will prevent the app from running
-     ****************************************************/
+
     public boolean debugging;
     public void debug(int width, int height) {
         Applet applet = this;
@@ -75,15 +66,19 @@ public class AnimationTemplate extends Applet implements ActionListener
     public void paint(Graphics g)
     {   
         //draw the picture
-        
+        g.setColor(Color.WHITE);
+        g.drawRect(x,y,100,20);
         //at the END of the method, make changes to the x and y values
         // so they move slightly on the next redraw
-        
+        x+=xInc;
+        y+=yInc;
         
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
         //off the screen.
-        
+        if(y>768-100){
+            y=0;
+        }
         }
 
     }
