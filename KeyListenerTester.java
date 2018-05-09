@@ -76,7 +76,7 @@ public class KeyListenerTester extends JFrame implements KeyListener {
 
     public static void main(String[] args) {
         new KeyListenerTester("Key Listener Tester");
-        //PlaySound psBackground =  new  PlaySound("YMCA oriental remix.wav");
+        //PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened).wav");
         //psBackground.stop();
         //psBackground.play();
     
