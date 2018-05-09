@@ -18,5 +18,7 @@ public class AnimationRunner
          int width = 1024;
          int height =768;
          app.debug(width,height);
+         
+         
     }
 }

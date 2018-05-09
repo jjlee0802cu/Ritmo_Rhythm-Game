@@ -22,15 +22,6 @@ public class comp extends JComponent
             {
                 public void keyPressed(KeyEvent ke)
                 {
-                    if(ke.getKeyCode() == KeyEvent.VK_UP)
-                    {
-                        fill = true;
-                    }
-                    if(ke.getKeyCode() == KeyEvent.VK_DOWN)
-                    {
-                        fill = false;
-                    }
-                    
                     if(ke.getKeyCode() == KeyEvent.VK_Q)
                     {
                         q = true;
