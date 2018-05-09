@@ -24,12 +24,12 @@ public class KeyListenerTester extends JFrame implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_Z) {
-            PlaySound ms=new PlaySound("soft-hitclap.wav");
+            PlaySound ms=new PlaySound("soft-hitnormal.wav");
             ms.stop();
             ms.play();
         }
         if (e.getKeyCode() == KeyEvent.VK_X) {
-            PlaySound ms=new PlaySound("Hihat.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -39,7 +39,7 @@ public class KeyListenerTester extends JFrame implements KeyListener {
             ms.play();
         }
         if (e.getKeyCode() == KeyEvent.VK_V) {
-            PlaySound ms=new PlaySound("Snare.wav");
+            PlaySound ms=new PlaySound("drum-hitclap.wav");
             ms.stop();
             ms.play();
         }
@@ -48,12 +48,12 @@ public class KeyListenerTester extends JFrame implements KeyListener {
     
     public void anotherKeyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_Z) {
-            PlaySound ms=new PlaySound("soft-hitclap.wav");
+            PlaySound ms=new PlaySound("soft-hitnormal.wav");
             ms.stop();
             ms.play();
         }
         if (e.getKeyCode() == KeyEvent.VK_X) {
-            PlaySound ms=new PlaySound("Hihat.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -63,7 +63,7 @@ public class KeyListenerTester extends JFrame implements KeyListener {
             ms.play();
         }
         if (e.getKeyCode() == KeyEvent.VK_V) {
-            PlaySound ms=new PlaySound("Snare.wav");
+            PlaySound ms=new PlaySound("drum-hitclap.wav");
             ms.stop();
             ms.play();
         }
