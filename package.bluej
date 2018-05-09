@@ -1,14 +1,14 @@
 #BlueJ package file
-dependency1.from=comp
-dependency1.to=PlaySound
+dependency1.from=BlockTester
+dependency1.to=Block
 dependency1.type=UsesDependency
 dependency2.from=BlockTester
-dependency2.to=Block
+dependency2.to=comp
 dependency2.type=UsesDependency
-dependency3.from=BlockTester
-dependency3.to=comp
+dependency3.from=KeyListenerTester
+dependency3.to=PlaySound
 dependency3.type=UsesDependency
-dependency4.from=KeyListenerTester
+dependency4.from=comp
 dependency4.to=PlaySound
 dependency4.type=UsesDependency
 editor.fx.0.height=722

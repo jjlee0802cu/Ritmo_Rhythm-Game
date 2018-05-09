@@ -19,15 +19,14 @@ public class comp extends JComponent
         Color background = new Color(0,0,0);
         f.getContentPane().setBackground( background );
         Component component = new comp();
-        PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened)");
+        PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened).wav");
         psBackground.stop();
         psBackground.play();
         f.addKeyListener(new KeyAdapter()
             {
                 public void keyPressed(KeyEvent ke)
                 {
-<<<<<<< HEAD
-=======
+
                     if(ke.getKeyCode() == KeyEvent.VK_UP)
                     {
                         fill = true;
@@ -119,7 +118,6 @@ public class comp extends JComponent
                         fill = false;
                     }
 
->>>>>>> b07d3bb5fc7371170c47ba1b306a07c1ebc1bccb
                     if(ke.getKeyCode() == KeyEvent.VK_Q)
                     {
                         q = true;
