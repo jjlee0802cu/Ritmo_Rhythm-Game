@@ -19,7 +19,7 @@ public class comp extends JComponent
         Color background = new Color(0,0,0);
         f.getContentPane().setBackground( background );
         Component component = new comp();
-        PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened)");
+        PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened).wav");
         psBackground.stop();
         psBackground.play();
         f.addKeyListener(new KeyAdapter()
