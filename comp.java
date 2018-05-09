@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 public class comp extends JComponent
 {
     static int rectangleY;
@@ -17,26 +19,175 @@ public class comp extends JComponent
         Color background = new Color(0,0,0);
         f.getContentPane().setBackground( background );
         Component component = new comp();
-
+        PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened)");
+        psBackground.stop();
+        psBackground.play();
         f.addKeyListener(new KeyAdapter()
             {
                 public void keyPressed(KeyEvent ke)
                 {
+<<<<<<< HEAD
+=======
+                    if(ke.getKeyCode() == KeyEvent.VK_UP)
+                    {
+                        fill = true;
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_DOWN)
+                    {
+                        fill = false;
+                    }
+
                     if(ke.getKeyCode() == KeyEvent.VK_Q)
                     {
                         q = true;
+                        PlaySound ms=new PlaySound("soft-hitnormal.wav");
+                        ms.stop();
+                        ms.play();
                     }
                     if(ke.getKeyCode() == KeyEvent.VK_W)
                     {
                         w = true;
+                        PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+                        ms.stop();
+                        ms.play();
                     }
                     if(ke.getKeyCode() == KeyEvent.VK_E)
                     {
                         e = true;
+                        PlaySound ms=new PlaySound("soft-slidertick.wav");
+                        ms.stop();
+                        ms.play();
                     }
                     if(ke.getKeyCode() == KeyEvent.VK_R)
                     {
                         r = true;
+                        PlaySound ms=new PlaySound("drum-hitclap.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                }
+                
+                public void anotherKeyPressed(KeyEvent ke)
+                {
+                    if(ke.getKeyCode() == KeyEvent.VK_UP)
+                    {
+                        fill = true;
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_DOWN)
+                    {
+                        fill = false;
+                    }
+
+                    if(ke.getKeyCode() == KeyEvent.VK_Q)
+                    {
+                        q = true;
+                        PlaySound ms=new PlaySound("soft-hitnormal.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_W)
+                    {
+                        w = true;
+                        PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_E)
+                    {
+                        e = true;
+                        PlaySound ms=new PlaySound("soft-slidertick.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_R)
+                    {
+                        r = true;
+                        PlaySound ms=new PlaySound("drum-hitclap.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                }
+                
+                public void moreKeyPressed(KeyEvent ke)
+                {
+                    if(ke.getKeyCode() == KeyEvent.VK_UP)
+                    {
+                        fill = true;
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_DOWN)
+                    {
+                        fill = false;
+                    }
+
+>>>>>>> b07d3bb5fc7371170c47ba1b306a07c1ebc1bccb
+                    if(ke.getKeyCode() == KeyEvent.VK_Q)
+                    {
+                        q = true;
+                        PlaySound ms=new PlaySound("soft-hitnormal.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_W)
+                    {
+                        w = true;
+                        PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_E)
+                    {
+                        e = true;
+                        PlaySound ms=new PlaySound("soft-slidertick.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_R)
+                    {
+                        r = true;
+                        PlaySound ms=new PlaySound("drum-hitclap.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                }
+                
+                public void lastKeyPressed(KeyEvent ke)
+                {
+                    if(ke.getKeyCode() == KeyEvent.VK_UP)
+                    {
+                        fill = true;
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_DOWN)
+                    {
+                        fill = false;
+                    }
+
+                    if(ke.getKeyCode() == KeyEvent.VK_Q)
+                    {
+                        q = true;
+                        PlaySound ms=new PlaySound("soft-hitnormal.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_W)
+                    {
+                        w = true;
+                        PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_E)
+                    {
+                        e = true;
+                        PlaySound ms=new PlaySound("soft-slidertick.wav");
+                        ms.stop();
+                        ms.play();
+                    }
+                    if(ke.getKeyCode() == KeyEvent.VK_R)
+                    {
+                        r = true;
+                        PlaySound ms=new PlaySound("drum-hitclap.wav");
+                        ms.stop();
+                        ms.play();
                     }
                 }
 
@@ -63,7 +214,7 @@ public class comp extends JComponent
         f.add(component);
         f.setSize(1024, 768);
         f.setVisible(true);
-        
+
         //int[] lanes = new int[100];
         //for(int i = 0;i<100;i++){
         //    lanes[i] = (int)(Math.random()*4)+1;
@@ -79,11 +230,12 @@ public class comp extends JComponent
 
                 }
                 f.repaint();
-                rectangleY+=2;
+                rectangleY+=1;
             }
             rectangleY=0;
         }
         clear = true;
+        
     }
 
     public void paintComponent(Graphics g){
@@ -94,7 +246,7 @@ public class comp extends JComponent
         g.fillRect(300,0,2,768-150);
         g.fillRect(400,0,2,768-150);
         g.fillRect(500,0,2,768-150);
-        
+
         if(lane>1000){
             g.fillRect(100*(lane%10),rectangleY,100,20);
             g.fillRect(100*(((int)lane/10)%10),rectangleY,100,20);
@@ -110,7 +262,6 @@ public class comp extends JComponent
         } 
         else {g.fillRect(lane*100,rectangleY,100,20);}
 
-
         if(q){
             g.fillRect(100,768-150,100,20);
         }
@@ -124,7 +275,8 @@ public class comp extends JComponent
             g.fillRect(400,768-150,100,20);
         }
         if(clear){g.setColor(Color.black);
-        g.fillRect(100,0,410,768);
-    }   
+            g.fillRect(100,0,410,768);
+        }   
     }
+
 }
