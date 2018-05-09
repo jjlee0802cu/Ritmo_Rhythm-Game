@@ -29,7 +29,7 @@ public class AnimationTemplate extends Applet implements ActionListener, KeyList
     public void actionPerformed(ActionEvent ae) {
         repaint(); 
     }
-    
+
     static boolean q=false;;
     static boolean w=false;
     static boolean e=false;
@@ -52,6 +52,7 @@ public class AnimationTemplate extends Applet implements ActionListener, KeyList
             r = false;
         }
     }
+
     public void keyPressed(KeyEvent ke){
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
@@ -70,10 +71,11 @@ public class AnimationTemplate extends Applet implements ActionListener, KeyList
             r = true;
         }
     }
+
     public void keyTyped(KeyEvent e){
 
     }
-    
+
     /** All code changes go below this point **/
     /** Variables declared here can be used in ALL following methods.
      * Generally, only those variables needed for animation purposes
@@ -107,10 +109,10 @@ public class AnimationTemplate extends Applet implements ActionListener, KeyList
         setBackground(Color.BLACK);
 
         
-        
     }
-    public ArrayList<Integer> OneYGaps = new ArrayList<Integer>(Array.asList(1,2));
-    
+    public ArrayList<Integer> OneYGaps = new ArrayList<Integer>();
+    Integer[] OneYGapsArray = {1,2,3,4};
+
     public void paint(Graphics g)
     {   
         g.setColor(Color.WHITE);
@@ -133,9 +135,13 @@ public class AnimationTemplate extends Applet implements ActionListener, KeyList
         if(r){
             g.fillRect(400,768-150,100,20);
         }
-        
+
         //draw the picture
         g.setColor(Color.WHITE);
+
+        for(int i:OneYGapsArray){
+            OneYGaps.add(i);
+        }
         g.drawRect(x,y,100,20);
         //at the END of the method, make changes to the x and y values
         // so they move slightly on the next redraw
