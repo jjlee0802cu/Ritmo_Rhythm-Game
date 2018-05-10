@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.applet.Applet;
 import javax.swing.*;
 import java.util.ArrayList;
-public class AnimationTemplate extends Applet implements ActionListener, KeyListener
+public class GameAnimation extends Applet implements ActionListener, KeyListener
 {
     public boolean debugging;
     public void debug(int width, int height) {
@@ -210,22 +210,22 @@ public class AnimationTemplate extends Applet implements ActionListener, KeyList
 
     }
 
-    Integer[] OneYArray = {0,50,100,100};
+    Integer[] OneYArray = {0,130,250,100};
     YGap ygap1 = new YGap(OneYArray);
     Coordinates coord1 = new Coordinates(ygap1);
     int coord1Length = coord1.length();
 
-    Integer[] TwoYArray = {0,100,100,100};
+    Integer[] TwoYArray = {30,350,50,100};
     YGap ygap2 = new YGap(TwoYArray);
     Coordinates coord2 = new Coordinates(ygap2);
     int coord2Length = coord2.length();
 
-    Integer[] ThreeYArray = {0,150,100,100};
+    Integer[] ThreeYArray = {50,330,100,250,40};
     YGap ygap3 = new YGap(ThreeYArray);
     Coordinates coord3 = new Coordinates(ygap3);
     int coord3Length = coord3.length();
 
-    Integer[] FourYArray = {0,100,100,100};
+    Integer[] FourYArray = {70,310,300,50,40,40};
     YGap ygap4 = new YGap(FourYArray);
     Coordinates coord4 = new Coordinates(ygap4);
     int coord4Length = coord4.length();

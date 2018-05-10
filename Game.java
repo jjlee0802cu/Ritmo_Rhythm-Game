@@ -5,7 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class AnimationRunner
+public class Game
 {
 
     public static void main(String[] args)
@@ -14,7 +14,7 @@ public class AnimationRunner
          * below to be the name of your
          * application file.
          */
-        AnimationTemplate app = new AnimationTemplate();
+        GameAnimation app = new GameAnimation();
         int width = 1024;
         int height =768;
         PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened).wav");
