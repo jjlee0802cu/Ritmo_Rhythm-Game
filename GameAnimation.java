@@ -218,8 +218,8 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
      * Generally, only those variables needed for animation purposes
      * should go here.
      */
-    private int x,y;       //shape starting point
-    private int xInc,yInc; //controls how much to move shape
+    private double x,y;       //shape starting point
+    private double xInc,yInc; //controls how much to move shape
     private Timer timer;   //used to force redraw 
     private int ctr;       //other needed variables
 
@@ -247,7 +247,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
     }
 
-    Integer[] OneYArray = {10,130,250,100};
+    Integer[] OneYArray = {-100,10,130,250,100};
     YGap ygap1 = new YGap(OneYArray);
     Coordinates coord1 = new Coordinates(ygap1);
     int coord1Length = coord1.length();
@@ -270,6 +270,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
     public void paint(Graphics g)
     {   
+        long startTime = System.currentTimeMillis();
         
         g.setColor(Color.WHITE);
         g.drawRect(100,768-150,400,20);
@@ -303,20 +304,21 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //draw the picture
 
         for (int i=0;i<coord1Length;i++){
-            g.drawRect(100,coord1.getCoord(i)+y,100,20);
+            g.drawRect(100,coord1.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord2Length;i++){
-            g.drawRect(200,coord2.getCoord(i)+y,100,20);
+            g.drawRect(200,coord2.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord3Length;i++){
-            g.drawRect(300,coord3.getCoord(i)+y,100,20);
+            g.drawRect(300,coord3.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord4Length;i++){
-            g.drawRect(400,coord4.getCoord(i)+y,100,20);
+            g.drawRect(400,coord4.getCoord(i)+(int)y,100,20);
         }
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
-
+        long endTime = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
         //at the END of the method, make changes to the x and y values
         // so they move slightly on the next redraw
 
