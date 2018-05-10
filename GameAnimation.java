@@ -225,7 +225,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
     }
 
-    Integer[] OneYArray = {10,130,250,100, 100,50,160,170,50};
+    Integer[] OneYArray = {-80,130,250,100, 100,50,160,170,50};
     YGap ygap1 = new YGap(OneYArray);
     Coordinates coord1 = new Coordinates(ygap1);
     int coord1Length = coord1.length();
@@ -246,10 +246,20 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     int coord4Length = coord4.length();
 
     Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
+<<<<<<< HEAD
     public void paint(Graphics g)
     {   
         long startTime = System.currentTimeMillis();
 
+=======
+    
+
+    double totalTime;
+    public void paint(Graphics g)
+    {   
+        double startTime = System.currentTimeMillis();
+        
+>>>>>>> 83e1b026b15e971c6759c37c78bcd700fe56a990
         g.setColor(Color.WHITE);
         g.drawRect(100,768-150,400,20);
         g.fillRect(100,0,2,768-130);
@@ -295,18 +305,23 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
+<<<<<<< HEAD
         long endTime = System.currentTimeMillis();
         long totalTime = endTime - startTime;
+=======
+        double endTime = System.currentTimeMillis();
+        totalTime = endTime - startTime;
+>>>>>>> 83e1b026b15e971c6759c37c78bcd700fe56a990
         //at the END of the method, make changes to the x and y values
         // so they move slightly on the next redraw
 
         //***********I think ticks can be implemented here
         x+=xInc;
         y+=1;
-
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
         //off the screen.
+<<<<<<< HEAD
         
         g.setColor(Color.RED);
         int xTrack=10;
@@ -331,6 +346,8 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             g.drawString(""+xInc,xTrack,yTrack);
             xTrack+=50;
         }
+=======
+>>>>>>> 83e1b026b15e971c6759c37c78bcd700fe56a990
     }
 }
 

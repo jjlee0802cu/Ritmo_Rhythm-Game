@@ -21,5 +21,6 @@ public class Game
         psBackground.stop();
         psBackground.play();
         app.debug(width,height);
+        
     }
 }
