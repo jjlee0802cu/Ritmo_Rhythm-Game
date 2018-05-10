@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Coordinates
+comment1.params=ygapinput
+comment1.target=Coordinates(YGap)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=
+comment3.target=int\ length()
+comment4.params=index
+comment4.target=int\ getCoord(int)
+numComments=5

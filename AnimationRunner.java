@@ -10,15 +10,17 @@ public class AnimationRunner
 
     public static void main(String[] args)
     {
-         /** Change "GraphicApp" in the line
-          * below to be the name of your
-          * application file.
-          */
-         AnimationTemplate app = new AnimationTemplate();
-         int width = 1024;
-         int height =768;
-         app.debug(width,height);
-         
-         
+        /** Change "GraphicApp" in the line
+         * below to be the name of your
+         * application file.
+         */
+        AnimationTemplate app = new AnimationTemplate();
+        int width = 1024;
+        int height =768;
+        PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened).wav");
+        psBackground.stop();
+        psBackground.play();
+        app.debug(width,height);
+
     }
 }

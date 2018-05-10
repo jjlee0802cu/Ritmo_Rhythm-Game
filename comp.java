@@ -18,6 +18,7 @@ public class comp extends JComponent
         JFrame f = new JFrame();
         Color background = new Color(0,0,0);
         f.getContentPane().setBackground( background );
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Component component = new comp();
         PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened).wav");
         psBackground.stop();
