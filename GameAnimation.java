@@ -83,7 +83,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("drum-hitclap.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
@@ -114,7 +114,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("drum-hitclap.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
@@ -145,7 +145,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("drum-hitclap.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
@@ -176,41 +176,13 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("drum-hitclap.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
     }
 
     public void keyTyped(KeyEvent ke){
-        if(ke.getKeyCode() == KeyEvent.VK_Q)
-        {
-            q = true;
-            PlaySound ms=new PlaySound("soft-hitnormal.wav");
-            ms.stop();
-            ms.play();
-        }
-        if(ke.getKeyCode() == KeyEvent.VK_W)
-        {
-            w = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
-            ms.stop();
-            ms.play();
-        }
-        if(ke.getKeyCode() == KeyEvent.VK_E)
-        {
-            e = true;
-            PlaySound ms=new PlaySound("soft-slidertick.wav");
-            ms.stop();
-            ms.play();
-        }
-        if(ke.getKeyCode() == KeyEvent.VK_R)
-        {
-            r = true;
-            PlaySound ms=new PlaySound("drum-hitclap.wav");
-            ms.stop();
-            ms.play();
-        }
     }
 
     /** All code changes go below this point **/
