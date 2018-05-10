@@ -21,6 +21,6 @@ comment7.params=ke
 comment7.target=void\ thirdkeyPressed(java.awt.event.KeyEvent)
 comment8.params=ke
 comment8.target=void\ fourthkeyPressed(java.awt.event.KeyEvent)
-comment9.params=e
+comment9.params=ke
 comment9.target=void\ keyTyped(java.awt.event.KeyEvent)
 numComments=12

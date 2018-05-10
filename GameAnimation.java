@@ -3,6 +3,10 @@ import java.awt.event.*;
 import java.applet.Applet;
 import javax.swing.*;
 import java.util.ArrayList;
+
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
 public class GameAnimation extends Applet implements ActionListener, KeyListener
 {
     public boolean debugging;
@@ -19,6 +23,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         frame.add(applet);
         applet.init();      // simulate browser call(1)
         applet.start();      // simulate browser call(2)
+
         frame.setVisible(true);
     }  
 
@@ -52,6 +57,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             r = false;
         }
     }
+
     public void keyPressed(KeyEvent ke){
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
@@ -82,6 +88,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             ms.play();
         }
     }
+
     public void secondkeyPressed(KeyEvent ke){
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
@@ -112,6 +119,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             ms.play();
         }
     }
+
     public void thirdkeyPressed(KeyEvent ke){
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
@@ -142,6 +150,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             ms.play();
         }
     }
+
     public void fourthkeyPressed(KeyEvent ke){
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
@@ -172,8 +181,36 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             ms.play();
         }
     }
-    public void keyTyped(KeyEvent e){
 
+    public void keyTyped(KeyEvent ke){
+        if(ke.getKeyCode() == KeyEvent.VK_Q)
+        {
+            q = true;
+            PlaySound ms=new PlaySound("soft-hitnormal.wav");
+            ms.stop();
+            ms.play();
+        }
+        if(ke.getKeyCode() == KeyEvent.VK_W)
+        {
+            w = true;
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            ms.stop();
+            ms.play();
+        }
+        if(ke.getKeyCode() == KeyEvent.VK_E)
+        {
+            e = true;
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            ms.stop();
+            ms.play();
+        }
+        if(ke.getKeyCode() == KeyEvent.VK_R)
+        {
+            r = true;
+            PlaySound ms=new PlaySound("drum-hitclap.wav");
+            ms.stop();
+            ms.play();
+        }
     }
 
     /** All code changes go below this point **/
@@ -210,28 +247,30 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
     }
 
-    Integer[] OneYArray = {0,130,250,100};
+    Integer[] OneYArray = {10,130,250,100};
     YGap ygap1 = new YGap(OneYArray);
     Coordinates coord1 = new Coordinates(ygap1);
     int coord1Length = coord1.length();
 
-    Integer[] TwoYArray = {30,350,50,100};
+    Integer[] TwoYArray = {40,350,50,100};
     YGap ygap2 = new YGap(TwoYArray);
     Coordinates coord2 = new Coordinates(ygap2);
     int coord2Length = coord2.length();
 
-    Integer[] ThreeYArray = {50,330,100,250,40};
+    Integer[] ThreeYArray = {60,330,100,250,40};
     YGap ygap3 = new YGap(ThreeYArray);
     Coordinates coord3 = new Coordinates(ygap3);
     int coord3Length = coord3.length();
 
-    Integer[] FourYArray = {70,310,300,50,40,40};
+    Integer[] FourYArray = {80,310,300,50,40,40};
     YGap ygap4 = new YGap(FourYArray);
     Coordinates coord4 = new Coordinates(ygap4);
     int coord4Length = coord4.length();
 
+    Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
     public void paint(Graphics g)
     {   
+        
         g.setColor(Color.WHITE);
         g.drawRect(100,768-150,400,20);
         g.fillRect(100,0,2,768-130);
@@ -242,15 +281,23 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         if(q){
             g.fillRect(100,768-150,100,20);
+            Graphics2D g2 = (Graphics2D) g;
+            g2.drawImage(picture, 100, 120, this);
         }
         if(w){
             g.fillRect(200,768-150,100,20);
+            Graphics2D g2 = (Graphics2D) g;
+            g2.drawImage(picture, 200, 120, this);
         }
         if(e){
             g.fillRect(300,768-150,100,20);
+            Graphics2D g2 = (Graphics2D) g;
+            g2.drawImage(picture, 300, 120, this);
         }
         if(r){
             g.fillRect(400,768-150,100,20);
+            Graphics2D g2 = (Graphics2D) g;
+            g2.drawImage(picture, 400, 120, this);
         }
 
         //draw the picture
@@ -280,6 +327,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
         //off the screen.
+
     }
 }
 
