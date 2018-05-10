@@ -1,6 +1,8 @@
 #BlueJ class context
-comment0.target=main
+comment0.target=hi
 comment0.text=\n\ main.java\ \ \n\n\ @author\:\n\ Assignment\ \#\:\n\ \n\ Brief\ Program\ Description\:\n\ \n\n
 comment1.params=s
 comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment2.params=n
+comment2.target=long\ factorial(int)
+numComments=3

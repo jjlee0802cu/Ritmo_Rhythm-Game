@@ -232,11 +232,11 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     { 
 
         // This is where the moving shape STARTS
-        x=100;
-        y=0;
+        x=100.0;
+        y=0.0;
         // How much to move in each direction when we redraw
-        xInc=0;
-        yInc=1;
+        xInc=0.0;
+        yInc=1.0;
         //initialize other needed variables
         ctr=0;
         // define the timer and start it
@@ -247,22 +247,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
     }
 
-    Integer[] OneYArray = {-100,10,130,250,100};
+    Integer[] OneYArray = {10,130,250,100, 100,50,160,170,50};
     YGap ygap1 = new YGap(OneYArray);
     Coordinates coord1 = new Coordinates(ygap1);
     int coord1Length = coord1.length();
 
-    Integer[] TwoYArray = {40,350,50,100};
+    Integer[] TwoYArray = {40,350,50,100, 100,60,170,150, 200};
     YGap ygap2 = new YGap(TwoYArray);
     Coordinates coord2 = new Coordinates(ygap2);
     int coord2Length = coord2.length();
 
-    Integer[] ThreeYArray = {60,330,100,250,40};
+    Integer[] ThreeYArray = {60,330,100,250,40, 100, 300, 100};
     YGap ygap3 = new YGap(ThreeYArray);
     Coordinates coord3 = new Coordinates(ygap3);
     int coord3Length = coord3.length();
 
-    Integer[] FourYArray = {80,310,300,50,40,40};
+    Integer[] FourYArray = {80,310,300,50,40,40, 150, 60, 150, 60, 70, 100};
     YGap ygap4 = new YGap(FourYArray);
     Coordinates coord4 = new Coordinates(ygap4);
     int coord4Length = coord4.length();
@@ -324,7 +324,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         //***********I think ticks can be implemented here
         x+=xInc;
-        y+=yInc;
+        y+=1;
 
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
