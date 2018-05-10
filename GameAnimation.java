@@ -3,11 +3,10 @@ import java.awt.event.*;
 import java.applet.Applet;
 import javax.swing.*;
 import java.util.ArrayList;
-import javax.sound.sampled.*;
+
 import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
-import javax.sound.sampled.AudioSystem;
 public class GameAnimation extends Applet implements ActionListener, KeyListener
 {
     public boolean debugging;
@@ -63,7 +62,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-hitnormal.wav");
             ms.stop();
             ms.play();
         }
@@ -77,14 +76,14 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
@@ -94,7 +93,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-hitnormal.wav");
             ms.stop();
             ms.play();
         }
@@ -108,14 +107,14 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
@@ -125,7 +124,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-hitnormal.wav");
             ms.stop();
             ms.play();
         }
@@ -139,14 +138,14 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
@@ -156,7 +155,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-hitnormal.wav");
             ms.stop();
             ms.play();
         }
@@ -170,14 +169,14 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
+            PlaySound ms=new PlaySound("soft-slidertick.wav");
             ms.stop();
             ms.play();
         }
@@ -213,7 +212,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //initialize other needed variables
         ctr=0;
         // define the timer and start it
-        timer = new Timer(10,this); // 10 ms. Larger numbers = slower
+        timer = new Timer(10-(int)totalTime,this); // 10 ms. Larger numbers = slower
         timer.start();
         //setup background color
         setBackground(Color.BLACK);
@@ -241,10 +240,12 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     int coord4Length = coord4.length();
 
     Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
+    
+    double totalTime;
     public void paint(Graphics g)
     {   
         long startTime = System.currentTimeMillis();
-
+        
         g.setColor(Color.WHITE);
         g.drawRect(100,768-150,400,20);
         g.fillRect(100,0,2,768-130);
@@ -277,27 +278,27 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //draw the picture
 
         for (int i=0;i<coord1Length;i++){
-            g.drawRect(100,(int)(coord1.getCoord(i)+y),100,20);
+            g.fillRect(100,(int)(coord1.getCoord(i)+y),100,20);
         }
         for (int i=0;i<coord2Length;i++){
-            g.drawRect(200,(int)(coord2.getCoord(i)+y),100,20);
+            g.fillRect(200,(int)(coord2.getCoord(i)+y),100,20);
         }
         for (int i=0;i<coord3Length;i++){
-            g.drawRect(300,(int)(coord3.getCoord(i)+y),100,20);
+            g.fillRect(300,(int)(coord3.getCoord(i)+y),100,20);
         }
         for (int i=0;i<coord4Length;i++){
-            g.drawRect(400,(int)(coord4.getCoord(i)+y),100,20);
+            g.fillRect(400,(int)(coord4.getCoord(i)+y),100,20);
         }
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
         long endTime = System.currentTimeMillis();
-        long totalTime = endTime - startTime;
+        totalTime = endTime - startTime;
         //at the END of the method, make changes to the x and y values
         // so they move slightly on the next redraw
 
         //***********I think ticks can be implemented here
         x+=0;
-        y+=totalTime;
+        y+=1;
 
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
