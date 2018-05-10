@@ -3,10 +3,11 @@ import java.awt.event.*;
 import java.applet.Applet;
 import javax.swing.*;
 import java.util.ArrayList;
-
+import javax.sound.sampled.*;
 import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
+import javax.sound.sampled.AudioSystem;
 public class GameAnimation extends Applet implements ActionListener, KeyListener
 {
     public boolean debugging;
@@ -62,7 +63,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
-            PlaySound ms=new PlaySound("soft-hitnormal.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -76,14 +77,14 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = true;
-            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -93,7 +94,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
-            PlaySound ms=new PlaySound("soft-hitnormal.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -107,14 +108,14 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = true;
-            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -124,7 +125,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
-            PlaySound ms=new PlaySound("soft-hitnormal.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -138,14 +139,14 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = true;
-            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -155,7 +156,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
-            PlaySound ms=new PlaySound("soft-hitnormal.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -169,14 +170,14 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = true;
-            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = true;
-            PlaySound ms=new PlaySound("soft-slidertick.wav");
+            PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
         }
@@ -243,7 +244,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     public void paint(Graphics g)
     {   
         long startTime = System.currentTimeMillis();
-        
+
         g.setColor(Color.WHITE);
         g.drawRect(100,768-150,400,20);
         g.fillRect(100,0,2,768-130);
