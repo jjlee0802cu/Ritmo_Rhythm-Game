@@ -212,14 +212,14 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //initialize other needed variables
         ctr=0;
         // define the timer and start it
-        timer = new Timer(10-(int)totalTime,this); // 10 ms. Larger numbers = slower
+        timer = new Timer(10,this); // 10 ms. Larger numbers = slower
         timer.start();
         //setup background color
         setBackground(Color.BLACK);
 
     }
 
-    Integer[] OneYArray = {10,130,250,100, 100,50,160,170,50};
+    Integer[] OneYArray = {-80,130,250,100, 100,50,160,170,50};
     YGap ygap1 = new YGap(OneYArray);
     Coordinates coord1 = new Coordinates(ygap1);
     int coord1Length = coord1.length();
@@ -241,10 +241,11 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
     Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
     
+
     double totalTime;
     public void paint(Graphics g)
     {   
-        long startTime = System.currentTimeMillis();
+        double startTime = System.currentTimeMillis();
         
         g.setColor(Color.WHITE);
         g.drawRect(100,768-150,400,20);
@@ -291,7 +292,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
-        long endTime = System.currentTimeMillis();
+        double endTime = System.currentTimeMillis();
         totalTime = endTime - startTime;
         //at the END of the method, make changes to the x and y values
         // so they move slightly on the next redraw
@@ -299,11 +300,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //***********I think ticks can be implemented here
         x+=0;
         y+=1;
-
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
         //off the screen.
-
     }
 }
 
