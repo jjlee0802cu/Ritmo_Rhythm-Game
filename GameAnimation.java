@@ -276,16 +276,16 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //draw the picture
 
         for (int i=0;i<coord1Length;i++){
-            g.drawRect(100,coord1.getCoord(i)+(int)y,100,20);
+            g.drawRect(100,(int)(coord1.getCoord(i)+y),100,20);
         }
         for (int i=0;i<coord2Length;i++){
-            g.drawRect(200,coord2.getCoord(i)+(int)y,100,20);
+            g.drawRect(200,(int)(coord2.getCoord(i)+y),100,20);
         }
         for (int i=0;i<coord3Length;i++){
-            g.drawRect(300,coord3.getCoord(i)+(int)y,100,20);
+            g.drawRect(300,(int)(coord3.getCoord(i)+y),100,20);
         }
         for (int i=0;i<coord4Length;i++){
-            g.drawRect(400,coord4.getCoord(i)+(int)y,100,20);
+            g.drawRect(400,(int)(coord4.getCoord(i)+y),100,20);
         }
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
@@ -295,8 +295,8 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         // so they move slightly on the next redraw
 
         //***********I think ticks can be implemented here
-        x+=xInc;
-        y+=1;
+        x+=0;
+        y+=totalTime;
 
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
