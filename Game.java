@@ -18,7 +18,7 @@ public class Game
         
         GameAnimation app = new GameAnimation();
         
-        T
+        
         
         Timer timer;
         timer.scheduleAtFixedRate(TimerTask task, offset,10);
