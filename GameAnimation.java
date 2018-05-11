@@ -58,23 +58,26 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = false;
+            playOnce=true;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
             w = false;
+            playOnce=true;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = false;
+            playOnce=true;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = false;
+            playOnce=true;
         }
     }
 
     public void keyPressed(KeyEvent ke){
-        playOnce=true;
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
@@ -122,7 +125,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     }
 
     public void secondkeyPressed(KeyEvent ke){
-        playOnce=true;
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
@@ -170,7 +172,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     }
 
     public void thirdkeyPressed(KeyEvent ke){
-        playOnce=true;
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
@@ -218,7 +219,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     }
 
     public void fourthkeyPressed(KeyEvent ke){
-        playOnce=true;
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = true;
@@ -420,6 +420,5 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             g.drawString(""+yNow,150,100); 
         }
     }
-
 }
 
