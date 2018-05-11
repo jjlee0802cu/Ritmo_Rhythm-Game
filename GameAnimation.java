@@ -341,8 +341,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         //made to "track" the time when the rectangles should hit the line
         g.setColor(Color.RED);
-        g.drawString(""+y,150,100);
-        /**if(qIntH>qInt){
+        if(qIntH>qInt){
             if(qIntH==1){
                 yNow=y;
                 qIntH=2;
@@ -369,7 +368,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 rIntH=2;
             }
             g.drawString(""+yNow,150,100); 
-        }**/
+        }
     }
 
 }
