@@ -17,7 +17,7 @@ public class Game
         GameAnimation app = new GameAnimation();
         int width = 1024;
         int height =768;
-        PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened).wav");
+        PlaySound psBackground =  new  PlaySound("YukiOnna.wav");
         psBackground.stop();
         psBackground.play();
         app.debug(width,height);
