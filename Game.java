@@ -1,4 +1,4 @@
-
+import java.util.Timer;
 /**
  * Write a description of class AnimationRunner here.
  *
@@ -14,7 +14,15 @@ public class Game
          * below to be the name of your
          * application file.
          */
+        long offset = 0;
+        
         GameAnimation app = new GameAnimation();
+        
+        T
+        
+        Timer timer;
+        timer.scheduleAtFixedRate(TimerTask task, offset,10);
+        
         int width = 1024;
         int height =768;
         PlaySound psBackground =  new  PlaySound("Howls Moving Castle(shortened).wav");
