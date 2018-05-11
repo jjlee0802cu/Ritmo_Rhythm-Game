@@ -45,8 +45,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         applet.start();      // simulate browser call(2)
 
         frame.setVisible(true);
-        introBackground = new ImageIcon("IntroBackground.jpg").getImage();
-                
+
+        introBackground = new ImageIcon("SnowyMountain.jpg").getImage();
+
     }  
 
 

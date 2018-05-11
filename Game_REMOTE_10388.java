@@ -1,5 +1,4 @@
 import java.util.Timer;
-import java.util.TimerTask;
 /**
  * Write a description of class AnimationRunner here.
  *
@@ -18,11 +17,11 @@ public class Game
         long offset = 0;
         
         GameAnimation app = new GameAnimation();
-        TimerTask gameTask = new GameTimerTask(app);
         
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(gameTask,offset,10);
-
+        
+        
+        Timer timer;
+        timer.scheduleAtFixedRate(TimerTask task, offset,10);
         
         int width = 1024;
         int height =768;

@@ -20,9 +20,15 @@ public class Game
         GameAnimation app = new GameAnimation();
         TimerTask gameTask = new GameTimerTask(app);
         
+<<<<<<< HEAD
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(gameTask,offset,10);
-
+=======
+        
+        
+        Timer timer;
+        timer.scheduleAtFixedRate(TimerTask task, offset,10);
+>>>>>>> 7333befd28e430eefb649f02551d48253cb63e02
         
         int width = 1024;
         int height =768;

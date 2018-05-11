@@ -22,7 +22,6 @@ public class Game
         
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(gameTask,offset,10);
-
         
         int width = 1024;
         int height =768;
