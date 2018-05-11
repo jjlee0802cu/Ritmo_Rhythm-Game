@@ -19,14 +19,11 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
     //for tracking
     int qInt=0;
-    int qIntH=0;
     int wInt=0;
-    int wIntH=0;
     int eInt=0;
-    int eIntH=0;
     int rInt=0;
-    int rIntH=0;
     double yNow=0;
+    //
     public void debug(int width, int height) {
         Applet applet = this;
         debugging = true;
@@ -82,7 +79,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play(); 
-            qIntH=1;
+            qInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -90,7 +87,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            wIntH=1;
+            wInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -98,7 +95,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            eIntH=1;
+            eInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -106,7 +103,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            rIntH=1;
+            rInt=1;
         }
     }
 
@@ -117,7 +114,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            qIntH=qInt+1;
+            qInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -125,7 +122,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            wIntH=wInt+1;
+            wInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -133,7 +130,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            eIntH=eInt+1;
+            eInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -141,7 +138,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            rIntH=rInt+1;
+            rInt=1;
         }
     }
 
@@ -152,7 +149,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            qIntH=qInt+1;
+            qInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -160,7 +157,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            wIntH=wInt+1;
+            wInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -168,7 +165,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            eIntH=eInt+1;
+            eInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -176,7 +173,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            rIntH=rInt+1;
+            rInt=1;
         }
     }
 
@@ -187,7 +184,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            qIntH=qInt+1;
+            qInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -195,7 +192,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            wIntH=wInt+1;
+            wInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -203,7 +200,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            eIntH=eInt+1;
+            eInt=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -211,7 +208,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
             ms.play();
-            rIntH=rInt+1;
+            rInt=1;
         }
     }
 
@@ -341,31 +338,31 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         //made to "track" the time when the rectangles should hit the line
         g.setColor(Color.RED);
-        if(qIntH>qInt){
-            if(qIntH==1){
+        if(qInt>0){
+            if(qInt==1){
                 yNow=y;
-                qIntH=2;
+                qInt=2;
             }
             g.drawString(""+yNow,150,100); 
         }
-        if(wIntH>wInt){
-            if(wIntH==1){
+        if(wInt>0){
+            if(wInt==1){
                 yNow=y;
-                wIntH=2;
+                wInt=2;
             }
             g.drawString(""+yNow,150,100);   
         }
-        if(eIntH>eInt){
-            if(eIntH==1){
+        if(eInt>0){
+            if(eInt==1){
                 yNow=y;
-                eIntH=2;
+                eInt=2;
             }
             g.drawString(""+yNow,150,100);   
         }
-        if(rIntH>rInt){
-            if(rIntH==1){
+        if(rInt>0){
+            if(rInt==1){
                 yNow=y;
-                rIntH=2;
+                rInt=2;
             }
             g.drawString(""+yNow,150,100); 
         }
