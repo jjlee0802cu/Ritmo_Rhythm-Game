@@ -46,6 +46,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         frame.setVisible(true);
         introBackground = new ImageIcon("IntroBackground.jpg").getImage();
+                
     }  
 
 
@@ -352,7 +353,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         double totalTime;  
         startTime = System.currentTimeMillis();
         
-        g.drawImage(introBackground,0,0,null);
+
         g.setColor(Color.WHITE);
         g.drawRect(100,768-150,400,20);
         g.fillRect(100,0,2,768-130);
