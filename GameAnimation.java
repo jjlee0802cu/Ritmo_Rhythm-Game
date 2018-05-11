@@ -22,7 +22,10 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     int wInt=0;
     int eInt=0;
     int rInt=0;
-    boolean playOnce=true;
+    boolean playQ=true;
+    boolean playW=true;
+    boolean playE=true;
+    boolean playR=true;
     double yNow=0;
     //
     public void debug(int width, int height) {
@@ -58,22 +61,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
             q = false;
-            playOnce=true;
+            playQ=true;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
             w = false;
-            playOnce=true;
+            playW=true;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
             e = false;
-            playOnce=true;
+            playE=true;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
             r = false;
-            playOnce=true;
+            playR=true;
         }
     }
 
@@ -83,9 +86,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             q = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playQ){
                 ms.play(); 
-                playOnce=!playOnce;
+                playQ=!playQ;
             }
             qInt=1;
         }
@@ -94,9 +97,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             w = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playW){
                 ms.play(); 
-                playOnce=!playOnce;
+                playW=!playW;
             }
             wInt=1;
         }
@@ -105,9 +108,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             e = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playE){
                 ms.play(); 
-                playOnce=!playOnce;
+                playE=!playE;
             }
             eInt=1;
         }
@@ -116,9 +119,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             r = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playR){
                 ms.play(); 
-                playOnce=!playOnce;
+                playR=!playR;
             }
             rInt=1;
         }
@@ -130,9 +133,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             q = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playQ){
                 ms.play(); 
-                playOnce=!playOnce;
+                playQ=!playQ;
             }
             qInt=1;
         }
@@ -141,9 +144,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             w = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playW){
                 ms.play(); 
-                playOnce=!playOnce;
+                playW=!playW;
             }
             wInt=1;
         }
@@ -152,9 +155,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             e = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playE){
                 ms.play(); 
-                playOnce=!playOnce;
+                playE=!playE;
             }
             eInt=1;
         }
@@ -163,9 +166,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             r = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playR){
                 ms.play(); 
-                playOnce=!playOnce;
+                playR=!playR;
             }
             rInt=1;
         }
@@ -177,9 +180,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             q = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playQ){
                 ms.play(); 
-                playOnce=!playOnce;
+                playQ=!playQ;
             }
             qInt=1;
         }
@@ -188,9 +191,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             w = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playW){
                 ms.play(); 
-                playOnce=!playOnce;
+                playW=!playW;
             }
             wInt=1;
         }
@@ -199,9 +202,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             e = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playE){
                 ms.play(); 
-                playOnce=!playOnce;
+                playE=!playE;
             }
             eInt=1;
         }
@@ -210,9 +213,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             r = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playR){
                 ms.play(); 
-                playOnce=!playOnce;
+                playR=!playR;
             }
             rInt=1;
         }
@@ -224,9 +227,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             q = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playQ){
                 ms.play(); 
-                playOnce=!playOnce;
+                playQ=!playQ;
             }
             qInt=1;
         }
@@ -235,9 +238,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             w = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playW){
                 ms.play(); 
-                playOnce=!playOnce;
+                playW=!playW;
             }
             wInt=1;
         }
@@ -246,9 +249,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             e = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playE){
                 ms.play(); 
-                playOnce=!playOnce;
+                playE=!playE;
             }
             eInt=1;
         }
@@ -257,16 +260,16 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             r = true;
             PlaySound ms=new PlaySound("normal-hitnormalh.wav");
             ms.stop();
-            if(playOnce){
+            if(playR){
                 ms.play(); 
-                playOnce=!playOnce;
+                playR=!playR;
             }
             rInt=1;
         }
     }
 
     public void keyTyped(KeyEvent ke){
-    }
+        }
 
     /** All code changes go below this point **/
     /** Variables declared here can be used in ALL following methods.
