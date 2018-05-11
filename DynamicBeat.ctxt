@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=DynamicBeat
-comment1.params=
-comment1.target=DynamicBeat()
-comment2.params=g
-comment2.target=void\ paint(java.awt.Graphics)
-comment3.params=g
-comment3.target=void\ screenDraw(java.awt.Graphics)
-numComments=4
