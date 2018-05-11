@@ -37,13 +37,16 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         frame.setSize(width, height + 20);
         frame.setBackground(Color.BLACK);
         frame.addKeyListener(this);
+        frame.setResizable(false);
         applet.setSize(width, height+frame.getY());
         frame.add(applet);
         applet.init();      // simulate browser call(1)
         applet.start();      // simulate browser call(2)
 
         frame.setVisible(true);
+        introBackground = new ImageIcon("IntroBackground.jpg").getImage();
     }  
+
 
     public boolean debugging() {
         return debugging;
@@ -269,7 +272,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     }
 
     public void keyTyped(KeyEvent ke){
-        }
+    }
 
     /** All code changes go below this point **/
     /** Variables declared here can be used in ALL following methods.
@@ -305,7 +308,8 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
     }
     //-95 appears as 523 milliseconds
-    Integer[] OneYArray = {-231,130,250,100, 100,50,160,170,50};
+    //-40 lands on first note on JL computer
+    Integer[] OneYArray = {-40,130,250,100, 100,50,160,170,50};
     YGap ygap1 = new YGap(OneYArray);
     Coordinates coord1 = new Coordinates(ygap1);
     int coord1Length = coord1.length();
@@ -326,13 +330,24 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     int coord4Length = coord4.length();
 
     Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
+    
+    private Image screenImage;
+    private Graphics screenGraphic;
+    private Image introBackground;
+
+
+
+
+
+
     public void paint(Graphics g)
     {   
         long startTime = System.currentTimeMillis();
 
         double totalTime;  
         startTime = System.currentTimeMillis();
-
+        
+        g.drawImage(introBackground,0,0,null);
         g.setColor(Color.WHITE);
         g.drawRect(100,768-150,400,20);
         g.fillRect(100,0,2,768-130);
