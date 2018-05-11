@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.util.Timer;
 
 public class GameAnimation extends Applet implements ActionListener, KeyListener
 {
@@ -292,7 +293,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     public void init()
     { 
 
-        // This is where the moving shape STARTS
+        /*// This is where the moving shape STARTS
         x=100.0;
         y=0.0;
         // How much to move in each direction when we redraw
@@ -302,7 +303,11 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         ctr=0;
         // define the timer and start it
         timer = new Timer(10,this); // 10 ms. Larger numbers = slower
-        timer.start();
+        timer.start();*/
+        
+        ActionEvent timerEvent = new ActionEvent(this, 6969, "timer");
+        
+        
         //setup background color
         setBackground(Color.BLACK);
 
