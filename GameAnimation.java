@@ -466,6 +466,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }
 
         //Scoring
+
         score = scoreL1 + scoreL2 + scoreL3 + scoreL4;
         String scoreString = ""+score;
         String[] scoreStringParts = scoreString.split("");
