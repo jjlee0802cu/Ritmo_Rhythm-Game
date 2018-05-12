@@ -61,8 +61,13 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     boolean playE=true;
     boolean playR=true;
     double yNow=0;
+
+    //
+
+    //for scoring
+    int score = 1;
+
     
-    int score = 0;
     int tempScore = 0;
     ArrayList<Integer> scoreDigits= new ArrayList<Integer>();
 
@@ -450,14 +455,47 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         bg.drawString("Score: "+score,850,100);
 
         tempScore = score;
-        if(tempScore==0){
-            scoreDigits.add(0);
-        } else {
-            while(tempScore>0){
+        // if(tempScore==0){
+            // scoreDigits.add(0);
+        // } else {
+            // while(tempScore>0){
+                // scoreDigits.add(tempScore%10);
+                // tempScore = tempScore/10;
+            // }
+        // }
+        while(tempScore>0){
                 scoreDigits.add(tempScore%10);
                 tempScore = tempScore/10;
             }
-        }
+
+        // if(scoreDigits.get(0) == 0){
+            // bg.drawImage(score0, 850, 100, null);
+        // } else if (scoreDigits.get(0) == 1){
+            // bg.drawImage(score1, 850, 100, null);
+        // }else if (scoreDigits.get(0) == 2){
+            // bg.drawImage(score2, 850, 100, null);
+        // }else if (scoreDigits.get(0) == 3){
+            // bg.drawImage(score3, 850, 100, null);
+        // }else if (scoreDigits.get(0) == 4){
+            // bg.drawImage(score4, 850, 100, null);
+        // }else if (scoreDigits.get(0) == 5){
+            // bg.drawImage(score5, 850, 100, null);
+        // }else if (scoreDigits.get(0) == 6){
+            // bg.drawImage(score6, 850, 100, null);
+        // }else if (scoreDigits.get(0) == 7){
+            // bg.drawImage(score7, 850, 100, null);
+        // }else if (scoreDigits.get(0) == 8){
+            // bg.drawImage(score8, 850, 100, null);
+        // }else {
+            // bg.drawImage(score9, 850, 100, null);
+        // }
+        bg.drawString(""+scoreDigits.size(),850,300);
+        int ydisp=0;
+        for(int i:scoreDigits){
+
+            bg.drawString(""+i,850+ydisp,200);
+        ydisp+=10;
+    }
 
         if(scoreDigits.get(0) == 0){
             bg.drawImage(score0, 850, 100, null);
@@ -480,6 +518,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }else {
             bg.drawImage(score9, 850, 100, null);
         }
+
 
 
 
