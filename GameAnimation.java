@@ -61,15 +61,13 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     boolean playE=true;
     boolean playR=true;
     double yNow=0;
-<<<<<<< HEAD
+
     //
 
     //for scoring
     int score = 1;
-=======
+
     
-    int score = 0;
->>>>>>> 899ec2553d42e4ddb1da8f619fa5f6438442499a
     int tempScore = 0;
     ArrayList<Integer> scoreDigits= new ArrayList<Integer>();
 
@@ -471,7 +469,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 tempScore = tempScore/10;
             }
 
-<<<<<<< HEAD
         // if(scoreDigits.get(0) == 0){
             // bg.drawImage(score0, 850, 100, null);
         // } else if (scoreDigits.get(0) == 1){
@@ -500,7 +497,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             bg.drawString(""+i,850+ydisp,200);
         ydisp+=10;
     }
-=======
+
         if(scoreDigits.get(0) == 0){
             bg.drawImage(score0, 850, 100, null);
         } else if (scoreDigits.get(0) == 1){
@@ -522,7 +519,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }else {
             bg.drawImage(score9, 850, 100, null);
         }
->>>>>>> 899ec2553d42e4ddb1da8f619fa5f6438442499a
+
 
 
 
