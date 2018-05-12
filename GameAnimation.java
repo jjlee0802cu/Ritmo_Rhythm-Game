@@ -612,7 +612,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         bg.setColor(Color.BLACK);
         bg.fillRect(0,0,1024,20);
         bg.drawImage(pBarFull,14,1,null);
-        bg.fillRect((int)(578*(y/12500))+14,0,1024,20);
+        bg.fillRect((int)(578*(y/11700))+14,0,1024,20);
         bg.drawImage(pBarEmpty, 10, -15, null);
 
         //(int)(1024*(y/11500))
