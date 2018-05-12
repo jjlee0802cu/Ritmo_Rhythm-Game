@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.util.Timer;
 import java.util.Arrays;
+import java.awt.image.BufferedImageOp;
 
 public class GameAnimation extends Applet implements ActionListener, KeyListener 
 {
@@ -81,8 +82,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         coord3Length = coord3.length();
         coord4Length = coord4.length();
 
-
-
         Applet applet = this;
         debugging = true;
         String windowTitle = applet.getClass().getName();
@@ -106,10 +105,8 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         frame.setVisible(true);
 
         introBackground = new ImageIcon("SnowyMountain.jpg").getImage();
-        
 
         //System.out.println(currentLevel.getMap().get(0));
-
     }  
 
     public boolean debugging() {
@@ -395,8 +392,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     private Image score7 = new ImageIcon("default-7.png").getImage();
     private Image score8 = new ImageIcon("default-8.png").getImage();
     private Image score9 = new ImageIcon("default-9.png").getImage();
-    
-    private Image pBar = new ImageIcon("progressBar.png").getImage();
+
+    private Image pBarEmpty = new ImageIcon("scorebar-bg.png").getImage();
+    private Image pBarFull = new ImageIcon("scorebar-colour.png").getImage();
 
     public void paint(Graphics g)
     {   
@@ -590,11 +588,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         scoreDigits.clear();
         x+=xInc;
         y+=1;
-        
+
         //Progress Bar
-        bg.drawImage(pBar, 0, 0, null);
         bg.setColor(Color.BLACK);
-        bg.fillRect((int)(1024*(y/11500)),0,1024,10);
+        bg.fillRect(0,0,1024,20);
+        bg.drawImage(pBarFull,14,1,null);
+        bg.fillRect((int)(578*(y/12500))+14,0,1024,20);
+        bg.drawImage(pBarEmpty, 10, -15, null);
+
+        //(int)(1024*(y/11500))
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
         /*long endTime = System.currentTimeMillis();
@@ -607,36 +609,36 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
         //off the screen.
-         
+
         //made to "track" the time when the rectangles should hit the line
         g.setColor(Color.RED);
         if(qInt>0){
-            if(qInt==1){
-                yNow=y;
-                qInt=2;
-            }
-            g.drawString(""+yNow,150,100); 
+        if(qInt==1){
+        yNow=y;
+        qInt=2;
+        }
+        g.drawString(""+yNow,150,100); 
         }
         if(wInt>0){
-            if(wInt==1){
-                yNow=y;
-                wInt=2;
-            }
-            g.drawString(""+yNow,150,100);   
+        if(wInt==1){
+        yNow=y;
+        wInt=2;
+        }
+        g.drawString(""+yNow,150,100);   
         }
         if(eInt>0){
-            if(eInt==1){
-                yNow=y;
-                eInt=2;
-            }
-            g.drawString(""+yNow,150,100);   
+        if(eInt==1){
+        yNow=y;
+        eInt=2;
+        }
+        g.drawString(""+yNow,150,100);   
         }
         if(rInt>0){
-            if(rInt==1){
-                yNow=y;
-                rInt=2;
-            }
-            g.drawString(""+yNow,150,100); 
+        if(rInt==1){
+        yNow=y;
+        rInt=2;
+        }
+        g.drawString(""+yNow,150,100); 
         }*/
         g.drawImage(renderFrame,0,0,this);
 
