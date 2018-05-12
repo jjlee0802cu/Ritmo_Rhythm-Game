@@ -423,7 +423,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }
         
         //Scoring
-        bg.drawString(""+score,850,100);
+        bg.drawString("Score: "+score,850,100);
 
         tempScore = score;
         if(tempScore==0){
