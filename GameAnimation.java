@@ -17,6 +17,9 @@ import java.util.Timer;
 public class GameAnimation extends Applet implements ActionListener, KeyListener
 {
     public boolean debugging;
+    Graphics bg; //bufferGraphics
+    BufferedImage renderFrame;
+    Dimension dim;
 
     //for tracking
     int qInt=0;
@@ -40,6 +43,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         frame.addKeyListener(this);
         frame.setResizable(false);
         applet.setSize(width, height+frame.getY());
+        dim = getSize();
         frame.add(applet);
         applet.init();      // simulate browser call(1)
         applet.start();      // simulate browser call(2)
@@ -307,11 +311,10 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         timer = new Timer(10,this); // 10 ms. Larger numbers = slower
         timer.start();*/
         
-        ActionEvent timerEvent = new ActionEvent(this, 6969, "timer");
-        
-        
-        //setup background color
         setBackground(Color.BLACK);
+        dim = getSize();
+        renderFrame = new BufferedImage(dim.width,dim.height,2);
+        bg = renderFrame.createGraphics();
 
     }
     //-95 appears as 523 milliseconds
@@ -343,7 +346,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     private Image introBackground;
 
 
-
+    public void update(Graphics g){
+        paint(g);
+    }
 
 
 
@@ -354,62 +359,64 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         double totalTime;  
         startTime = System.currentTimeMillis();
         
-
-        g.setColor(Color.WHITE);
-        g.drawRect(100,768-150,400,20);
-        g.fillRect(100,0,2,768-130);
-        g.fillRect(200,0,2,768-130);
-        g.fillRect(300,0,2,768-130);
-        g.fillRect(400,0,2,768-130);
-        g.fillRect(500,0,2,768-130);
-
+        //Clear previous graphics
+        bg.clearRect(0,0,dim.width,dim.width); 
+        
+        
+        bg.setColor(Color.WHITE);
+        bg.drawRect(100,768-150,400,20);
+        bg.fillRect(100,0,2,768-130);
+        bg.fillRect(200,0,2,768-130);
+        bg.fillRect(300,0,2,768-130);
+        bg.fillRect(400,0,2,768-130);
+        bg.fillRect(500,0,2,768-130);
+        
+        Graphics2D g2 = (Graphics2D) bg;
         if(q){
-            g.fillRect(100,768-150,100,20);
-            Graphics2D g2 = (Graphics2D) g;
+            bg.fillRect(100,768-150,100,20);
             g2.drawImage(picture, 100, 120, this);
         }
         if(w){
-            g.fillRect(200,768-150,100,20);
-            Graphics2D g2 = (Graphics2D) g;
+            bg.fillRect(200,768-150,100,20);
             g2.drawImage(picture, 200, 120, this);
         }
         if(e){
-            g.fillRect(300,768-150,100,20);
-            Graphics2D g2 = (Graphics2D) g;
+            bg.fillRect(300,768-150,100,20);
             g2.drawImage(picture, 300, 120, this);
         }
         if(r){
-            g.fillRect(400,768-150,100,20);
-            Graphics2D g2 = (Graphics2D) g;
+            bg.fillRect(400,768-150,100,20);
             g2.drawImage(picture, 400, 120, this);
         }
 
         //draw the picture
-
         for (int i=0;i<coord1Length;i++){
-            g.drawRect(100,coord1.getCoord(i)+(int)y,100,20);
+            bg.drawRect(100,coord1.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord2Length;i++){
-            g.drawRect(200,coord2.getCoord(i)+(int)y,100,20);
+            bg.drawRect(200,coord2.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord3Length;i++){
-            g.drawRect(300,coord3.getCoord(i)+(int)y,100,20);
+            bg.drawRect(300,coord3.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord4Length;i++){
-            g.drawRect(400,coord4.getCoord(i)+(int)y,100,20);
+            bg.drawRect(400,coord4.getCoord(i)+(int)y,100,20);
         }
+        
+        //***********I think ticks can be implemented here
+        x+=xInc;
+        y+=1;
+        
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
-        long endTime = System.currentTimeMillis();
+        /*long endTime = System.currentTimeMillis();
         totalTime = endTime - startTime;
         endTime = System.currentTimeMillis();
         totalTime = endTime - startTime;
         //at the END of the method, make changes to the x and y values
         // so they move slightly on the next redraw
 
-        //***********I think ticks can be implemented here
-        x+=xInc;
-        y+=1;
+       
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
         //off the screen.
@@ -443,7 +450,8 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 rInt=2;
             }
             g.drawString(""+yNow,150,100); 
-        }
+        }*/
+        g.drawImage(renderFrame,0,0,this);
     }
 }
 
