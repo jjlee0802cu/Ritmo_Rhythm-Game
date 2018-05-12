@@ -65,10 +65,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     //
 
     //for scoring
-    int score = 1;
-
-    
-    int tempScore = 0;
+    int score = 0;
     ArrayList<Integer> scoreDigits= new ArrayList<Integer>();
 
     public void debug(int width, int height) throws Exception {
@@ -84,8 +81,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         coord4Length = coord4.length();
 
         //for scoring
-        
-        
+
         Applet applet = this;
         debugging = true;
         String windowTitle = applet.getClass().getName();
@@ -110,7 +106,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         introBackground = new ImageIcon("SnowyMountain.jpg").getImage();
 
-        System.out.println(currentLevel.getMap().get(0));
+        //System.out.println(currentLevel.getMap().get(0));
 
     }  
 
@@ -160,7 +156,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
-            score++;
+            score+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -387,7 +383,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         paint(g);
     }
 
-
     private Image score0 = new ImageIcon("default-0.png").getImage();
     private Image score1 = new ImageIcon("default-1.png").getImage();
     private Image score2 = new ImageIcon("default-2.png").getImage();
@@ -398,7 +393,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     private Image score7 = new ImageIcon("default-7.png").getImage();
     private Image score8 = new ImageIcon("default-8.png").getImage();
     private Image score9 = new ImageIcon("default-9.png").getImage();
-
 
     public void paint(Graphics g)
     {   
@@ -454,76 +448,143 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         //Scoring
         bg.drawString("Score: "+score,850,100);
-
-        tempScore = score;
-        // if(tempScore==0){
-            // scoreDigits.add(0);
-        // } else {
-            // while(tempScore>0){
-                // scoreDigits.add(tempScore%10);
-                // tempScore = tempScore/10;
-            // }
-        // }
-        while(tempScore>0){
-                scoreDigits.add(tempScore%10);
-                tempScore = tempScore/10;
-            }
-
-        // if(scoreDigits.get(0) == 0){
-            // bg.drawImage(score0, 850, 100, null);
-        // } else if (scoreDigits.get(0) == 1){
-            // bg.drawImage(score1, 850, 100, null);
-        // }else if (scoreDigits.get(0) == 2){
-            // bg.drawImage(score2, 850, 100, null);
-        // }else if (scoreDigits.get(0) == 3){
-            // bg.drawImage(score3, 850, 100, null);
-        // }else if (scoreDigits.get(0) == 4){
-            // bg.drawImage(score4, 850, 100, null);
-        // }else if (scoreDigits.get(0) == 5){
-            // bg.drawImage(score5, 850, 100, null);
-        // }else if (scoreDigits.get(0) == 6){
-            // bg.drawImage(score6, 850, 100, null);
-        // }else if (scoreDigits.get(0) == 7){
-            // bg.drawImage(score7, 850, 100, null);
-        // }else if (scoreDigits.get(0) == 8){
-            // bg.drawImage(score8, 850, 100, null);
-        // }else {
-            // bg.drawImage(score9, 850, 100, null);
-        // }
-        bg.drawString(""+scoreDigits.size(),850,300);
-        int ydisp=0;
-        for(int i:scoreDigits){
-
-            bg.drawString(""+i,850+ydisp,200);
-        ydisp+=10;
-    }
-
-        if(scoreDigits.get(0) == 0){
-            bg.drawImage(score0, 850, 100, null);
-        } else if (scoreDigits.get(0) == 1){
-            bg.drawImage(score1, 850, 100, null);
-        }else if (scoreDigits.get(0) == 2){
-            bg.drawImage(score2, 850, 100, null);
-        }else if (scoreDigits.get(0) == 3){
-            bg.drawImage(score3, 850, 100, null);
-        }else if (scoreDigits.get(0) == 4){
-            bg.drawImage(score4, 850, 100, null);
-        }else if (scoreDigits.get(0) == 5){
-            bg.drawImage(score5, 850, 100, null);
-        }else if (scoreDigits.get(0) == 6){
-            bg.drawImage(score6, 850, 100, null);
-        }else if (scoreDigits.get(0) == 7){
-            bg.drawImage(score7, 850, 100, null);
-        }else if (scoreDigits.get(0) == 8){
-            bg.drawImage(score8, 850, 100, null);
-        }else {
-            bg.drawImage(score9, 850, 100, null);
+        String scoreString = ""+score;
+        String[] scoreStringParts = scoreString.split("");
+        for(String s:scoreStringParts){
+            scoreDigits.add(Integer.parseInt(s));
         }
 
+        if(scoreDigits.size()>=6){
+            bg.drawImage(score9, 650, 100, null);
+            bg.drawImage(score9, 700, 100, null);
+            bg.drawImage(score9, 750, 100, null);
+            bg.drawImage(score9, 800, 100, null);
+            bg.drawImage(score9, 850, 100, null);
+        } else{
 
+            //TenThousand's Digit
+            if(scoreDigits.size()>=5){
+                if(scoreDigits.get(scoreDigits.size()-5) == 0){
+                    bg.drawImage(score0, 650, 100, null);
+                }else if(scoreDigits.get(scoreDigits.size()-5) == 1){
+                    bg.drawImage(score1, 650, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 2){
+                    bg.drawImage(score2, 650, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 3){
+                    bg.drawImage(score3, 650, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 4){
+                    bg.drawImage(score4, 650, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-5)== 5){
+                    bg.drawImage(score5, 650, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 6){
+                    bg.drawImage(score6, 650, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 7){
+                    bg.drawImage(score7, 650, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 8){
+                    bg.drawImage(score8, 650, 100, null);
+                }else {
+                    bg.drawImage(score9, 650, 100, null);
+                }
+            } else{bg.drawImage(score0, 650, 100, null);}
 
+            //Thousand's Digit
+            if(scoreDigits.size()>=4){
+                if(scoreDigits.get(scoreDigits.size()-4) == 0){
+                    bg.drawImage(score0, 700, 100, null);
+                }else if(scoreDigits.get(scoreDigits.size()-4) == 1){
+                    bg.drawImage(score1, 700, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 2){
+                    bg.drawImage(score2, 700, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 3){
+                    bg.drawImage(score3, 700, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 4){
+                    bg.drawImage(score4, 700, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-4)== 5){
+                    bg.drawImage(score5, 700, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 6){
+                    bg.drawImage(score6, 700, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 7){
+                    bg.drawImage(score7, 700, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 8){
+                    bg.drawImage(score8, 700, 100, null);
+                }else {
+                    bg.drawImage(score9, 700, 100, null);
+                }
+            } else{bg.drawImage(score0, 700, 100, null);}
 
-            //***********I think ticks can be implemented here
+            //Hundred's Digit
+            if(scoreDigits.size()>=3){
+                if(scoreDigits.get(scoreDigits.size()-3) == 0){
+                    bg.drawImage(score0, 750, 100, null);
+                }else if(scoreDigits.get(scoreDigits.size()-3) == 1){
+                    bg.drawImage(score1, 750, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 2){
+                    bg.drawImage(score2, 750, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 3){
+                    bg.drawImage(score3, 750, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 4){
+                    bg.drawImage(score4, 750, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3)== 5){
+                    bg.drawImage(score5, 750, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 6){
+                    bg.drawImage(score6, 750, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 7){
+                    bg.drawImage(score7, 750, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 8){
+                    bg.drawImage(score8, 750, 100, null);
+                }else {
+                    bg.drawImage(score9, 750, 100, null);
+                }
+            } else{bg.drawImage(score0, 750, 100, null);}
+
+            //Ten's Digit
+            if(scoreDigits.size()>=2){
+                if(scoreDigits.get(scoreDigits.size()-2) == 0){
+                    bg.drawImage(score0, 800, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 1){
+                    bg.drawImage(score1, 800, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 2){
+                    bg.drawImage(score2, 800, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 3){
+                    bg.drawImage(score3, 800, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 4){
+                    bg.drawImage(score4, 800, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2)== 5){
+                    bg.drawImage(score5, 800, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 6){
+                    bg.drawImage(score6, 800, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 7){
+                    bg.drawImage(score7, 800, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 8){
+                    bg.drawImage(score8, 800, 100, null);
+                }else {
+                    bg.drawImage(score9, 800, 100, null);
+                }
+            } else {bg.drawImage(score0, 800, 100, null);}
+
+            if(scoreDigits.get(scoreDigits.size()-1) == 0){
+                bg.drawImage(score0, 850, 100, null);
+            } else if (scoreDigits.get(scoreDigits.size()-1) == 1){
+                bg.drawImage(score1, 850, 100, null);
+            }else if (scoreDigits.get(scoreDigits.size()-1) == 2){
+                bg.drawImage(score2, 850, 100, null);
+            }else if (scoreDigits.get(scoreDigits.size()-1) == 3){
+                bg.drawImage(score3, 850, 100, null);
+            }else if (scoreDigits.get(scoreDigits.size()-1) == 4){
+                bg.drawImage(score4, 850, 100, null);
+            }else if (scoreDigits.get(scoreDigits.size()-1)== 5){
+                bg.drawImage(score5, 850, 100, null);
+            }else if (scoreDigits.get(scoreDigits.size()-1) == 6){
+                bg.drawImage(score6, 850, 100, null);
+            }else if (scoreDigits.get(scoreDigits.size()-1) == 7){
+                bg.drawImage(score7, 850, 100, null);
+            }else if (scoreDigits.get(scoreDigits.size()-1) == 8){
+                bg.drawImage(score8, 850, 100, null);
+            }else {
+                bg.drawImage(score9, 850, 100, null);
+            }
+        }
+        scoreDigits.clear();
         x+=xInc;
         y+=1;
 
@@ -571,10 +632,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         g.drawString(""+yNow,150,100); 
         }*/
         g.drawImage(renderFrame,0,0,this);
-
-        for(int i=0;i<scoreDigits.size();i++){
-            scoreDigits.remove(i);
-        }
 
     }
 }
