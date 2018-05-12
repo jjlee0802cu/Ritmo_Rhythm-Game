@@ -105,7 +105,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         introBackground = new ImageIcon("SnowyMountain.jpg").getImage();
 
-        System.out.println(currentLevel.getMap().get(0));
 
     }  
 
