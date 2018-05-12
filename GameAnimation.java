@@ -42,11 +42,11 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     int coord4Length = coord4.length();
 
     Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
-    
+
     private Image screenImage;
     private Graphics screenGraphic;
     private Image introBackground;
-    
+
     //for tracking
     int qInt=0;
     int wInt=0;
@@ -58,6 +58,12 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     boolean playR=true;
     double yNow=0;
     //
+
+    //for scoring
+    int score = 0;
+    int tempScore = 0;
+    ArrayList<Integer> scoreDigits= new ArrayList<Integer>();
+
     public void debug(int width, int height) {
         Applet applet = this;
         debugging = true;
@@ -79,7 +85,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         introBackground = new ImageIcon("SnowyMountain.jpg").getImage();
 
     }  
-
 
     public boolean debugging() {
         return debugging;
@@ -127,6 +132,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
+            score++;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -174,6 +180,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
+            score++;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -221,6 +228,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
+            score++;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -268,6 +276,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
+            score++;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -336,7 +345,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         // define the timer and start it
         timer = new Timer(10,this); // 10 ms. Larger numbers = slower
         timer.start();*/
-        
+
         setBackground(Color.BLACK);
         dim = getSize();
         renderFrame = new BufferedImage(dim.width,dim.height,2);
@@ -345,13 +354,21 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     }
     //-95 appears as 523 milliseconds
     //-40 lands on first note on JL computer
-    
 
     public void update(Graphics g){
         paint(g);
     }
 
-
+    private Image score0 = new ImageIcon("default-0.png").getImage();
+    private Image score1 = new ImageIcon("default-1.png").getImage();
+    private Image score2 = new ImageIcon("default-2.png").getImage();
+    private Image score3 = new ImageIcon("default-3.png").getImage();
+    private Image score4 = new ImageIcon("default-4.png").getImage();
+    private Image score5 = new ImageIcon("default-5.png").getImage();
+    private Image score6 = new ImageIcon("default-6.png").getImage();
+    private Image score7 = new ImageIcon("default-7.png").getImage();
+    private Image score8 = new ImageIcon("default-8.png").getImage();
+    private Image score9 = new ImageIcon("default-9.png").getImage();
 
     public void paint(Graphics g)
     {   
@@ -359,12 +376,12 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         double totalTime;  
         startTime = System.currentTimeMillis();
-        
+
         //Clear previous graphics
         bg.clearRect(0,0,dim.width,dim.width); 
-        
+
         bg.drawImage(introBackground, 0, 0, null);
-        
+
         bg.setColor(Color.WHITE);
         bg.drawRect(100,768-150,400,20);
         bg.fillRect(100,0,2,768-130);
@@ -372,7 +389,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         bg.fillRect(300,0,2,768-130);
         bg.fillRect(400,0,2,768-130);
         bg.fillRect(500,0,2,768-130);
-        
+
         Graphics2D g2 = (Graphics2D) bg;
         if(q){
             bg.fillRect(100,768-150,100,20);
@@ -405,10 +422,46 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             bg.drawRect(400,coord4.getCoord(i)+(int)y,100,20);
         }
         
+        //Scoring
+        bg.drawString(""+score,850,100);
+
+        tempScore = score;
+        if(tempScore==0){
+            scoreDigits.add(0);
+        } else {
+            while(tempScore>0){
+                scoreDigits.add(tempScore%10);
+                tempScore = tempScore/10;
+            }
+        }
+
+        if(scoreDigits.get(0) == 0){
+            bg.drawImage(score0, 850, 100, null);
+        } else if (scoreDigits.get(0) == 1){
+            bg.drawImage(score1, 850, 100, null);
+        }else if (scoreDigits.get(0) == 2){
+            bg.drawImage(score2, 850, 100, null);
+        }else if (scoreDigits.get(0) == 3){
+            bg.drawImage(score3, 850, 100, null);
+        }else if (scoreDigits.get(0) == 4){
+            bg.drawImage(score4, 850, 100, null);
+        }else if (scoreDigits.get(0) == 5){
+            bg.drawImage(score5, 850, 100, null);
+        }else if (scoreDigits.get(0) == 6){
+            bg.drawImage(score6, 850, 100, null);
+        }else if (scoreDigits.get(0) == 7){
+            bg.drawImage(score7, 850, 100, null);
+        }else if (scoreDigits.get(0) == 8){
+            bg.drawImage(score8, 850, 100, null);
+        }else {
+            bg.drawImage(score9, 850, 100, null);
+        }
+        
+
         //***********I think ticks can be implemented here
         x+=xInc;
         y+=1;
-        
+
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
         /*long endTime = System.currentTimeMillis();
@@ -418,7 +471,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //at the END of the method, make changes to the x and y values
         // so they move slightly on the next redraw
 
-       
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
         //off the screen.
@@ -426,34 +478,40 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //made to "track" the time when the rectangles should hit the line
         g.setColor(Color.RED);
         if(qInt>0){
-            if(qInt==1){
-                yNow=y;
-                qInt=2;
-            }
-            g.drawString(""+yNow,150,100); 
+        if(qInt==1){
+        yNow=y;
+        qInt=2;
+        }
+        g.drawString(""+yNow,150,100); 
         }
         if(wInt>0){
-            if(wInt==1){
-                yNow=y;
-                wInt=2;
-            }
-            g.drawString(""+yNow,150,100);   
+        if(wInt==1){
+        yNow=y;
+        wInt=2;
+        }
+        g.drawString(""+yNow,150,100);   
         }
         if(eInt>0){
-            if(eInt==1){
-                yNow=y;
-                eInt=2;
-            }
-            g.drawString(""+yNow,150,100);   
+        if(eInt==1){
+        yNow=y;
+        eInt=2;
+        }
+        g.drawString(""+yNow,150,100);   
         }
         if(rInt>0){
-            if(rInt==1){
-                yNow=y;
-                rInt=2;
-            }
-            g.drawString(""+yNow,150,100); 
+        if(rInt==1){
+        yNow=y;
+        rInt=2;
+        }
+        g.drawString(""+yNow,150,100); 
         }*/
         g.drawImage(renderFrame,0,0,this);
+
+        
+        for(int i=0;i<scoreDigits.size();i++){
+            scoreDigits.remove(i);
+        }
+
     }
 }
 
