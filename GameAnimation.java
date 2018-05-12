@@ -106,6 +106,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         frame.setVisible(true);
 
         introBackground = new ImageIcon("SnowyMountain.jpg").getImage();
+        
 
         //System.out.println(currentLevel.getMap().get(0));
 
@@ -394,6 +395,8 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     private Image score7 = new ImageIcon("default-7.png").getImage();
     private Image score8 = new ImageIcon("default-8.png").getImage();
     private Image score9 = new ImageIcon("default-9.png").getImage();
+    
+    private Image pBar = new ImageIcon("progressBar.png").getImage();
 
     public void paint(Graphics g)
     {   
@@ -588,7 +591,10 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         scoreDigits.clear();
         x+=xInc;
         y+=1;
-
+        
+        bg.drawImage(pBar, 0, 0, null);
+        bg.setColor(Color.BLACK);
+        bg.fillRect((int)(1024*(y/11500)),0,1024,10);
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
         /*long endTime = System.currentTimeMillis();
@@ -601,36 +607,36 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
         //off the screen.
-
+         
         //made to "track" the time when the rectangles should hit the line
         g.setColor(Color.RED);
         if(qInt>0){
-        if(qInt==1){
-        yNow=y;
-        qInt=2;
-        }
-        g.drawString(""+yNow,150,100); 
+            if(qInt==1){
+                yNow=y;
+                qInt=2;
+            }
+            g.drawString(""+yNow,150,100); 
         }
         if(wInt>0){
-        if(wInt==1){
-        yNow=y;
-        wInt=2;
-        }
-        g.drawString(""+yNow,150,100);   
+            if(wInt==1){
+                yNow=y;
+                wInt=2;
+            }
+            g.drawString(""+yNow,150,100);   
         }
         if(eInt>0){
-        if(eInt==1){
-        yNow=y;
-        eInt=2;
-        }
-        g.drawString(""+yNow,150,100);   
+            if(eInt==1){
+                yNow=y;
+                eInt=2;
+            }
+            g.drawString(""+yNow,150,100);   
         }
         if(rInt>0){
-        if(rInt==1){
-        yNow=y;
-        rInt=2;
-        }
-        g.drawString(""+yNow,150,100); 
+            if(rInt==1){
+                yNow=y;
+                rInt=2;
+            }
+            g.drawString(""+yNow,150,100); 
         }*/
         g.drawImage(renderFrame,0,0,this);
 
