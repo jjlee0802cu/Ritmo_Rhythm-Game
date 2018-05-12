@@ -13,15 +13,16 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.Timer;
+import java.util.Arrays;
 
-public class GameAnimation extends Applet implements ActionListener, KeyListener
+public class GameAnimation extends Applet implements ActionListener, KeyListener 
 {
     public boolean debugging;
     Graphics bg; //bufferGraphics
     BufferedImage renderFrame;
     Dimension dim;
 
-    Integer[] OneYArray = {-40,130,250,100, 100,50,160,170,50};
+    /*Integer[] OneYArray = {-40,130,250,100, 100,50,160,170,50};
     YGap ygap1 = new YGap(OneYArray);
     Coordinates coord1 = new Coordinates(ygap1);
     int coord1Length = coord1.length();
@@ -39,14 +40,17 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     Integer[] FourYArray = {80,310,300,50,40,40, 150, 60, 150, 60, 70, 100};
     YGap ygap4 = new YGap(FourYArray);
     Coordinates coord4 = new Coordinates(ygap4);
-    int coord4Length = coord4.length();
+    int coord4Length = coord4.length();*/
+
+    private Coordinates coord1, coord2, coord3, coord4;
+    private int coord1Length, coord2Length, coord3Length, coord4Length;
 
     Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
-    
+
     private Image screenImage;
     private Graphics screenGraphic;
     private Image introBackground;
-    
+
     //for tracking
     int qInt=0;
     int wInt=0;
@@ -58,7 +62,18 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     boolean playR=true;
     double yNow=0;
     //
-    public void debug(int width, int height) {
+    public void debug(int width, int height) throws Exception {
+        Beatmap currentLevel = new Beatmap("beatmap.osu");
+        coord1 = currentLevel.getMap().get(0);
+        coord2 = currentLevel.getMap().get(1);
+        coord3 = currentLevel.getMap().get(2);
+        coord4 = currentLevel.getMap().get(3);
+       
+        coord1Length = coord1.length();
+        coord2Length = coord2.length();
+        coord3Length = coord3.length();
+        coord4Length = coord4.length();
+
         Applet applet = this;
         debugging = true;
         String windowTitle = applet.getClass().getName();
@@ -71,15 +86,21 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         applet.setSize(width, height+frame.getY());
         dim = getSize();
         frame.add(applet);
+        
+        PlaySound psBackground =  new  PlaySound("YukiOnna.wav");
+        psBackground.stop();
+        psBackground.play();
+        
         applet.init();      // simulate browser call(1)
         applet.start();      // simulate browser call(2)
 
         frame.setVisible(true);
 
         introBackground = new ImageIcon("SnowyMountain.jpg").getImage();
+        
+        System.out.println(currentLevel.getMap().get(0));
 
     }  
-
 
     public boolean debugging() {
         return debugging;
@@ -336,6 +357,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         // define the timer and start it
         timer = new Timer(10,this); // 10 ms. Larger numbers = slower
         timer.start();*/
+
         
         setBackground(Color.BLACK);
         dim = getSize();
@@ -345,12 +367,10 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     }
     //-95 appears as 523 milliseconds
     //-40 lands on first note on JL computer
-    
 
     public void update(Graphics g){
         paint(g);
     }
-
 
 
     public void paint(Graphics g)
@@ -359,12 +379,12 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         double totalTime;  
         startTime = System.currentTimeMillis();
-        
+
         //Clear previous graphics
         bg.clearRect(0,0,dim.width,dim.width); 
-        
+
         bg.drawImage(introBackground, 0, 0, null);
-        
+
         bg.setColor(Color.WHITE);
         bg.drawRect(100,768-150,400,20);
         bg.fillRect(100,0,2,768-130);
@@ -372,7 +392,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         bg.fillRect(300,0,2,768-130);
         bg.fillRect(400,0,2,768-130);
         bg.fillRect(500,0,2,768-130);
-        
+
         Graphics2D g2 = (Graphics2D) bg;
         if(q){
             bg.fillRect(100,768-150,100,20);
@@ -393,22 +413,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         //draw the picture
         for (int i=0;i<coord1Length;i++){
-            bg.drawRect(100,coord1.getCoord(i)+(int)y,100,20);
+            bg.fillRect(100,coord1.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord2Length;i++){
-            bg.drawRect(200,coord2.getCoord(i)+(int)y,100,20);
+            bg.fillRect(200,coord2.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord3Length;i++){
-            bg.drawRect(300,coord3.getCoord(i)+(int)y,100,20);
+            bg.fillRect(300,coord3.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord4Length;i++){
-            bg.drawRect(400,coord4.getCoord(i)+(int)y,100,20);
+            bg.fillRect(400,coord4.getCoord(i)+(int)y,100,20);
         }
-        
+
         //***********I think ticks can be implemented here
         x+=xInc;
         y+=1;
-        
+
         //Array instead of arraylist is much less lag. 
         //for loop instead of foreach is much less lag.
         /*long endTime = System.currentTimeMillis();
@@ -418,7 +438,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //at the END of the method, make changes to the x and y values
         // so they move slightly on the next redraw
 
-       
         //often, you'll want to check for the edges of the screen
         //and make your picture change direction instead of going
         //off the screen.
@@ -426,32 +445,32 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //made to "track" the time when the rectangles should hit the line
         g.setColor(Color.RED);
         if(qInt>0){
-            if(qInt==1){
-                yNow=y;
-                qInt=2;
-            }
-            g.drawString(""+yNow,150,100); 
+        if(qInt==1){
+        yNow=y;
+        qInt=2;
+        }
+        g.drawString(""+yNow,150,100); 
         }
         if(wInt>0){
-            if(wInt==1){
-                yNow=y;
-                wInt=2;
-            }
-            g.drawString(""+yNow,150,100);   
+        if(wInt==1){
+        yNow=y;
+        wInt=2;
+        }
+        g.drawString(""+yNow,150,100);   
         }
         if(eInt>0){
-            if(eInt==1){
-                yNow=y;
-                eInt=2;
-            }
-            g.drawString(""+yNow,150,100);   
+        if(eInt==1){
+        yNow=y;
+        eInt=2;
+        }
+        g.drawString(""+yNow,150,100);   
         }
         if(rInt>0){
-            if(rInt==1){
-                yNow=y;
-                rInt=2;
-            }
-            g.drawString(""+yNow,150,100); 
+        if(rInt==1){
+        yNow=y;
+        rInt=2;
+        }
+        g.drawString(""+yNow,150,100); 
         }*/
         g.drawImage(renderFrame,0,0,this);
     }
