@@ -21,6 +21,32 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     BufferedImage renderFrame;
     Dimension dim;
 
+    Integer[] OneYArray = {-40,130,250,100, 100,50,160,170,50};
+    YGap ygap1 = new YGap(OneYArray);
+    Coordinates coord1 = new Coordinates(ygap1);
+    int coord1Length = coord1.length();
+
+    Integer[] TwoYArray = {40,350,50,100, 100,60,170,150, 200};
+    YGap ygap2 = new YGap(TwoYArray);
+    Coordinates coord2 = new Coordinates(ygap2);
+    int coord2Length = coord2.length();
+
+    Integer[] ThreeYArray = {60,330,100,250,40, 100, 300, 100};
+    YGap ygap3 = new YGap(ThreeYArray);
+    Coordinates coord3 = new Coordinates(ygap3);
+    int coord3Length = coord3.length();
+
+    Integer[] FourYArray = {80,310,300,50,40,40, 150, 60, 150, 60, 70, 100};
+    YGap ygap4 = new YGap(FourYArray);
+    Coordinates coord4 = new Coordinates(ygap4);
+    int coord4Length = coord4.length();
+
+    Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
+    
+    private Image screenImage;
+    private Graphics screenGraphic;
+    private Image introBackground;
+    
     //for tracking
     int qInt=0;
     int wInt=0;
@@ -319,32 +345,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     }
     //-95 appears as 523 milliseconds
     //-40 lands on first note on JL computer
-    Integer[] OneYArray = {-40,130,250,100, 100,50,160,170,50};
-    YGap ygap1 = new YGap(OneYArray);
-    Coordinates coord1 = new Coordinates(ygap1);
-    int coord1Length = coord1.length();
-
-    Integer[] TwoYArray = {40,350,50,100, 100,60,170,150, 200};
-    YGap ygap2 = new YGap(TwoYArray);
-    Coordinates coord2 = new Coordinates(ygap2);
-    int coord2Length = coord2.length();
-
-    Integer[] ThreeYArray = {60,330,100,250,40, 100, 300, 100};
-    YGap ygap3 = new YGap(ThreeYArray);
-    Coordinates coord3 = new Coordinates(ygap3);
-    int coord3Length = coord3.length();
-
-    Integer[] FourYArray = {80,310,300,50,40,40, 150, 60, 150, 60, 70, 100};
-    YGap ygap4 = new YGap(FourYArray);
-    Coordinates coord4 = new Coordinates(ygap4);
-    int coord4Length = coord4.length();
-
-    Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
     
-    private Image screenImage;
-    private Graphics screenGraphic;
-    private Image introBackground;
-
 
     public void update(Graphics g){
         paint(g);
@@ -362,6 +363,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         //Clear previous graphics
         bg.clearRect(0,0,dim.width,dim.width); 
         
+        bg.drawImage(introBackground, 0, 0, null);
         
         bg.setColor(Color.WHITE);
         bg.drawRect(100,768-150,400,20);
