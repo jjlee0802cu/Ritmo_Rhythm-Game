@@ -61,19 +61,26 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     boolean playE=true;
     boolean playR=true;
     double yNow=0;
-    //
+    
+    int score = 0;
+    int tempScore = 0;
+    ArrayList<Integer> scoreDigits= new ArrayList<Integer>();
+
     public void debug(int width, int height) throws Exception {
         Beatmap currentLevel = new Beatmap("beatmap.osu");
         coord1 = currentLevel.getMap().get(0);
         coord2 = currentLevel.getMap().get(1);
         coord3 = currentLevel.getMap().get(2);
         coord4 = currentLevel.getMap().get(3);
-       
+
         coord1Length = coord1.length();
         coord2Length = coord2.length();
         coord3Length = coord3.length();
         coord4Length = coord4.length();
 
+        //for scoring
+        
+        
         Applet applet = this;
         debugging = true;
         String windowTitle = applet.getClass().getName();
@@ -86,18 +93,18 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         applet.setSize(width, height+frame.getY());
         dim = getSize();
         frame.add(applet);
-        
+
         PlaySound psBackground =  new  PlaySound("YukiOnna.wav");
         psBackground.stop();
         psBackground.play();
-        
+
         applet.init();      // simulate browser call(1)
         applet.start();      // simulate browser call(2)
 
         frame.setVisible(true);
 
         introBackground = new ImageIcon("SnowyMountain.jpg").getImage();
-        
+
         System.out.println(currentLevel.getMap().get(0));
 
     }  
@@ -148,6 +155,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
+            score++;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -195,6 +203,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
+            score++;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -242,6 +251,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
+            score++;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -289,6 +299,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
+            score++;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -358,7 +369,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         timer = new Timer(10,this); // 10 ms. Larger numbers = slower
         timer.start();*/
 
-        
         setBackground(Color.BLACK);
         dim = getSize();
         renderFrame = new BufferedImage(dim.width,dim.height,2);
@@ -371,6 +381,18 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     public void update(Graphics g){
         paint(g);
     }
+
+
+    private Image score0 = new ImageIcon("default-0.png").getImage();
+    private Image score1 = new ImageIcon("default-1.png").getImage();
+    private Image score2 = new ImageIcon("default-2.png").getImage();
+    private Image score3 = new ImageIcon("default-3.png").getImage();
+    private Image score4 = new ImageIcon("default-4.png").getImage();
+    private Image score5 = new ImageIcon("default-5.png").getImage();
+    private Image score6 = new ImageIcon("default-6.png").getImage();
+    private Image score7 = new ImageIcon("default-7.png").getImage();
+    private Image score8 = new ImageIcon("default-8.png").getImage();
+    private Image score9 = new ImageIcon("default-9.png").getImage();
 
 
     public void paint(Graphics g)
@@ -425,7 +447,44 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             bg.fillRect(400,coord4.getCoord(i)+(int)y,100,20);
         }
 
-        //***********I think ticks can be implemented here
+        //Scoring
+        bg.drawString("Score: "+score,850,100);
+
+        tempScore = score;
+        if(tempScore==0){
+            scoreDigits.add(0);
+        } else {
+            while(tempScore>0){
+                scoreDigits.add(tempScore%10);
+                tempScore = tempScore/10;
+            }
+        }
+
+        if(scoreDigits.get(0) == 0){
+            bg.drawImage(score0, 850, 100, null);
+        } else if (scoreDigits.get(0) == 1){
+            bg.drawImage(score1, 850, 100, null);
+        }else if (scoreDigits.get(0) == 2){
+            bg.drawImage(score2, 850, 100, null);
+        }else if (scoreDigits.get(0) == 3){
+            bg.drawImage(score3, 850, 100, null);
+        }else if (scoreDigits.get(0) == 4){
+            bg.drawImage(score4, 850, 100, null);
+        }else if (scoreDigits.get(0) == 5){
+            bg.drawImage(score5, 850, 100, null);
+        }else if (scoreDigits.get(0) == 6){
+            bg.drawImage(score6, 850, 100, null);
+        }else if (scoreDigits.get(0) == 7){
+            bg.drawImage(score7, 850, 100, null);
+        }else if (scoreDigits.get(0) == 8){
+            bg.drawImage(score8, 850, 100, null);
+        }else {
+            bg.drawImage(score9, 850, 100, null);
+        }
+
+
+
+            //***********I think ticks can be implemented here
         x+=xInc;
         y+=1;
 
@@ -473,6 +532,11 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         g.drawString(""+yNow,150,100); 
         }*/
         g.drawImage(renderFrame,0,0,this);
+
+        for(int i=0;i<scoreDigits.size();i++){
+            scoreDigits.remove(i);
+        }
+
     }
 }
 
