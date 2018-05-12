@@ -67,7 +67,12 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     //
 
     //for scoring
-    int score = 0;
+    int scoreL1 = 0;
+    int scoreL2 = 0;
+    int scoreL3 = 0;
+    int scoreL4 = 0;
+    int score = scoreL1 + scoreL2 + scoreL3 + scoreL4;
+
     ArrayList<Integer> scoreDigits= new ArrayList<Integer>();
 
     public void debug(int width, int height) throws Exception {
@@ -155,7 +160,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
-            score+=1;
+            scoreL1+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -167,6 +172,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playW=!playW;
             }
             wInt=1;
+            scoreL2+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -178,6 +184,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playE=!playE;
             }
             eInt=1;
+            scoreL3+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -189,6 +196,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playR=!playR;
             }
             rInt=1;
+            scoreL4+=1;
         }
     }
 
@@ -203,7 +211,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
-            score++;
+            scoreL1+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -215,6 +223,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playW=!playW;
             }
             wInt=1;
+            scoreL2+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -226,6 +235,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playE=!playE;
             }
             eInt=1;
+            scoreL3+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -237,6 +247,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playR=!playR;
             }
             rInt=1;
+            scoreL4+=1;
         }
     }
 
@@ -251,7 +262,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
-            score++;
+            scoreL1+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -263,6 +274,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playW=!playW;
             }
             wInt=1;
+            scoreL2+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -274,6 +286,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playE=!playE;
             }
             eInt=1;
+            scoreL3+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -285,6 +298,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playR=!playR;
             }
             rInt=1;
+            scoreL4+=1;
         }
     }
 
@@ -299,7 +313,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
-            score++;
+            scoreL1+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -311,6 +325,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playW=!playW;
             }
             wInt=1;
+            scoreL2+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -322,6 +337,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playE=!playE;
             }
             eInt=1;
+            scoreL3+=1;
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -333,6 +349,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playR=!playR;
             }
             rInt=1;
+            scoreL4+=1;
         }
     }
 
@@ -449,6 +466,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }
 
         //Scoring
+        score = scoreL1 + scoreL2 + scoreL3 + scoreL4;
         String scoreString = ""+score;
         String[] scoreStringParts = scoreString.split("");
         for(String s:scoreStringParts){
