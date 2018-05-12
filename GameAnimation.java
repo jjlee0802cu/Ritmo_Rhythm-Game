@@ -81,7 +81,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         coord3Length = coord3.length();
         coord4Length = coord4.length();
 
-        //for scoring
+
 
         Applet applet = this;
         debugging = true;
