@@ -13,15 +13,16 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.Timer;
+import java.util.Arrays;
 
-public class GameAnimation extends Applet implements ActionListener, KeyListener
+public class GameAnimation extends Applet implements ActionListener, KeyListener 
 {
     public boolean debugging;
     Graphics bg; //bufferGraphics
     BufferedImage renderFrame;
     Dimension dim;
 
-    Integer[] OneYArray = {-40,130,250,100, 100,50,160,170,50};
+    /*Integer[] OneYArray = {-40,130,250,100, 100,50,160,170,50};
     YGap ygap1 = new YGap(OneYArray);
     Coordinates coord1 = new Coordinates(ygap1);
     int coord1Length = coord1.length();
@@ -39,7 +40,10 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     Integer[] FourYArray = {80,310,300,50,40,40, 150, 60, 150, 60, 70, 100};
     YGap ygap4 = new YGap(FourYArray);
     Coordinates coord4 = new Coordinates(ygap4);
-    int coord4Length = coord4.length();
+    int coord4Length = coord4.length();*/
+
+    private Coordinates coord1, coord2, coord3, coord4;
+    private int coord1Length, coord2Length, coord3Length, coord4Length;
 
     Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
 
@@ -57,14 +61,33 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     boolean playE=true;
     boolean playR=true;
     double yNow=0;
+<<<<<<< HEAD
     //
 
     //for scoring
     int score = 1;
+=======
+    
+    int score = 0;
+>>>>>>> 899ec2553d42e4ddb1da8f619fa5f6438442499a
     int tempScore = 0;
     ArrayList<Integer> scoreDigits= new ArrayList<Integer>();
 
-    public void debug(int width, int height) {
+    public void debug(int width, int height) throws Exception {
+        Beatmap currentLevel = new Beatmap("beatmap.osu");
+        coord1 = currentLevel.getMap().get(0);
+        coord2 = currentLevel.getMap().get(1);
+        coord3 = currentLevel.getMap().get(2);
+        coord4 = currentLevel.getMap().get(3);
+
+        coord1Length = coord1.length();
+        coord2Length = coord2.length();
+        coord3Length = coord3.length();
+        coord4Length = coord4.length();
+
+        //for scoring
+        
+        
         Applet applet = this;
         debugging = true;
         String windowTitle = applet.getClass().getName();
@@ -77,12 +100,19 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         applet.setSize(width, height+frame.getY());
         dim = getSize();
         frame.add(applet);
+
+        PlaySound psBackground =  new  PlaySound("YukiOnna.wav");
+        psBackground.stop();
+        psBackground.play();
+
         applet.init();      // simulate browser call(1)
         applet.start();      // simulate browser call(2)
 
         frame.setVisible(true);
 
         introBackground = new ImageIcon("SnowyMountain.jpg").getImage();
+
+        System.out.println(currentLevel.getMap().get(0));
 
     }  
 
@@ -359,6 +389,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         paint(g);
     }
 
+
     private Image score0 = new ImageIcon("default-0.png").getImage();
     private Image score1 = new ImageIcon("default-1.png").getImage();
     private Image score2 = new ImageIcon("default-2.png").getImage();
@@ -369,6 +400,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     private Image score7 = new ImageIcon("default-7.png").getImage();
     private Image score8 = new ImageIcon("default-8.png").getImage();
     private Image score9 = new ImageIcon("default-9.png").getImage();
+
 
     public void paint(Graphics g)
     {   
@@ -410,18 +442,18 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         //draw the picture
         for (int i=0;i<coord1Length;i++){
-            bg.drawRect(100,coord1.getCoord(i)+(int)y,100,20);
+            bg.fillRect(100,coord1.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord2Length;i++){
-            bg.drawRect(200,coord2.getCoord(i)+(int)y,100,20);
+            bg.fillRect(200,coord2.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord3Length;i++){
-            bg.drawRect(300,coord3.getCoord(i)+(int)y,100,20);
+            bg.fillRect(300,coord3.getCoord(i)+(int)y,100,20);
         }
         for (int i=0;i<coord4Length;i++){
-            bg.drawRect(400,coord4.getCoord(i)+(int)y,100,20);
+            bg.fillRect(400,coord4.getCoord(i)+(int)y,100,20);
         }
-        
+
         //Scoring
         bg.drawString("Score: "+score,850,100);
 
@@ -439,6 +471,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 tempScore = tempScore/10;
             }
 
+<<<<<<< HEAD
         // if(scoreDigits.get(0) == 0){
             // bg.drawImage(score0, 850, 100, null);
         // } else if (scoreDigits.get(0) == 1){
@@ -467,8 +500,33 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             bg.drawString(""+i,850+ydisp,200);
         ydisp+=10;
     }
+=======
+        if(scoreDigits.get(0) == 0){
+            bg.drawImage(score0, 850, 100, null);
+        } else if (scoreDigits.get(0) == 1){
+            bg.drawImage(score1, 850, 100, null);
+        }else if (scoreDigits.get(0) == 2){
+            bg.drawImage(score2, 850, 100, null);
+        }else if (scoreDigits.get(0) == 3){
+            bg.drawImage(score3, 850, 100, null);
+        }else if (scoreDigits.get(0) == 4){
+            bg.drawImage(score4, 850, 100, null);
+        }else if (scoreDigits.get(0) == 5){
+            bg.drawImage(score5, 850, 100, null);
+        }else if (scoreDigits.get(0) == 6){
+            bg.drawImage(score6, 850, 100, null);
+        }else if (scoreDigits.get(0) == 7){
+            bg.drawImage(score7, 850, 100, null);
+        }else if (scoreDigits.get(0) == 8){
+            bg.drawImage(score8, 850, 100, null);
+        }else {
+            bg.drawImage(score9, 850, 100, null);
+        }
+>>>>>>> 899ec2553d42e4ddb1da8f619fa5f6438442499a
 
-        //***********I think ticks can be implemented here
+
+
+            //***********I think ticks can be implemented here
         x+=xInc;
         y+=1;
 
@@ -517,7 +575,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }*/
         g.drawImage(renderFrame,0,0,this);
 
-        
         for(int i=0;i<scoreDigits.size();i++){
             scoreDigits.remove(i);
         }

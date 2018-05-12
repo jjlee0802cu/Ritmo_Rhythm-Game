@@ -1,8 +1,8 @@
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
 public class Coordinates
 {
-    
-    
     private ArrayList<Integer> coords;
     public Coordinates(YGap ygapinput)
     {
@@ -11,6 +11,13 @@ public class Coordinates
         for(int i=0;i<ygapinput.get().size();i++){
             temp-=ygapinput.get().get(i);
             coords.add(temp);
+        }
+    }
+    
+    public Coordinates(ArrayList<Integer> input){
+        coords = new ArrayList<Integer>();
+        for (Integer i : input){
+            coords.add((-i/10)+618);
         }
     }
     
