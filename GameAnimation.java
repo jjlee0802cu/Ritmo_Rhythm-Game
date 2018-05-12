@@ -451,7 +451,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }
 
         //Scoring
-        bg.drawString("Score: "+score,850,100);
         String scoreString = ""+score;
         String[] scoreStringParts = scoreString.split("");
         for(String s:scoreStringParts){
@@ -592,6 +591,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         x+=xInc;
         y+=1;
         
+        //Progress Bar
         bg.drawImage(pBar, 0, 0, null);
         bg.setColor(Color.BLACK);
         bg.fillRect((int)(1024*(y/11500)),0,1024,10);
