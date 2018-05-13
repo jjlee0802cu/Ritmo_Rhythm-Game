@@ -34,4 +34,7 @@ public class Coordinates
     public int getCoord(int index){
         return coords.get(index);
     }
+    public void removeFirst(){
+        coords.remove(0);
+    }
 }

@@ -45,7 +45,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     int coord4Length = coord4.length();*/
 
     private Coordinates coord1, coord2, coord3, coord4;
-    private int coord1Length, coord2Length, coord3Length, coord4Length;
 
     Image picture = Toolkit.getDefaultToolkit().getImage("keypress.png");
 
@@ -81,11 +80,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         coord2 = currentLevel.getMap().get(1);
         coord3 = currentLevel.getMap().get(2);
         coord4 = currentLevel.getMap().get(3);
-
-        coord1Length = coord1.length();
-        coord2Length = coord2.length();
-        coord3Length = coord3.length();
-        coord4Length = coord4.length();
 
         Applet applet = this;
         debugging = true;
@@ -126,6 +120,9 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     static boolean w=false;
     static boolean e=false;
     static boolean r=false;
+
+    static int line = 768-150;
+
     public void keyReleased(KeyEvent ke){
         if(ke.getKeyCode() == KeyEvent.VK_Q)
         {
@@ -160,7 +157,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
-            scoreL1+=1;
+
+            double timing = y + coord1.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL1+=2;
+                coord1.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL1+=1;
+                coord1.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord1.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -172,7 +184,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playW=!playW;
             }
             wInt=1;
-            scoreL2+=1;
+
+            double timing = y + coord2.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL2+=2;
+                coord2.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL2+=1;
+                coord2.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord2.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -184,7 +211,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playE=!playE;
             }
             eInt=1;
-            scoreL3+=1;
+
+            double timing = y + coord3.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL3+=2;
+                coord3.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL3+=1;
+                coord3.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord3.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -196,7 +238,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playR=!playR;
             }
             rInt=1;
-            scoreL4+=1;
+
+            double timing = y + coord4.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL4+=2;
+                coord4.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL4+=1;
+                coord4.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord4.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
     }
 
@@ -211,7 +268,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
-            scoreL1+=1;
+
+            double timing = y + coord1.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL1+=2;
+                coord1.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL1+=1;
+                coord1.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord1.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -223,7 +295,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playW=!playW;
             }
             wInt=1;
-            scoreL2+=1;
+
+            double timing = y + coord2.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL2+=2;
+                coord2.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL2+=1;
+                coord2.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord2.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -235,7 +322,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playE=!playE;
             }
             eInt=1;
-            scoreL3+=1;
+
+            double timing = y + coord3.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL3+=2;
+                coord3.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL3+=1;
+                coord3.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord3.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -247,7 +349,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playR=!playR;
             }
             rInt=1;
-            scoreL4+=1;
+
+            double timing = y + coord4.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL4+=2;
+                coord4.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL4+=1;
+                coord4.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord4.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
     }
 
@@ -262,7 +379,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
-            scoreL1+=1;
+
+            double timing = y + coord1.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL1+=2;
+                coord1.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL1+=1;
+                coord1.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord1.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -274,7 +406,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playW=!playW;
             }
             wInt=1;
-            scoreL2+=1;
+
+            double timing = y + coord2.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL2+=2;
+                coord2.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL2+=1;
+                coord2.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord2.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -286,7 +433,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playE=!playE;
             }
             eInt=1;
-            scoreL3+=1;
+
+            double timing = y + coord3.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL3+=2;
+                coord3.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL3+=1;
+                coord3.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord3.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -298,7 +460,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playR=!playR;
             }
             rInt=1;
-            scoreL4+=1;
+
+            double timing = y + coord4.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL4+=2;
+                coord4.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL4+=1;
+                coord4.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord4.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
     }
 
@@ -313,7 +490,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playQ=!playQ;
             }
             qInt=1;
-            scoreL1+=1;
+
+            double timing = y + coord1.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL1+=2;
+                coord1.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL1+=1;
+                coord1.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord1.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_W)
         {
@@ -325,7 +517,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playW=!playW;
             }
             wInt=1;
-            scoreL2+=1;
+
+            double timing = y + coord2.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL2+=2;
+                coord2.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL2+=1;
+                coord2.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord2.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_E)
         {
@@ -337,7 +544,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playE=!playE;
             }
             eInt=1;
-            scoreL3+=1;
+
+            double timing = y + coord3.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL3+=2;
+                coord3.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL3+=1;
+                coord3.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord3.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
         if(ke.getKeyCode() == KeyEvent.VK_R)
         {
@@ -349,7 +571,22 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 playR=!playR;
             }
             rInt=1;
-            scoreL4+=1;
+
+            double timing = y + coord4.getCoord(0);
+            if(timing<=line+20 && timing>=line-20){
+                //Perfect
+                scoreL4+=2;
+                coord4.removeFirst();
+            } else if(timing<=line+30 && timing>=line-30){
+                //Late or Early
+                scoreL4+=1;
+                coord4.removeFirst();
+            } else if(timing>=line-50){
+                //Missed
+                coord4.removeFirst();
+            } else {
+                //If too early, nothing happens
+            }
         }
     }
 
@@ -425,242 +662,260 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
         bg.drawImage(introBackground, 0, 0, null);
 
-        bg.setColor(Color.WHITE);
-        bg.drawRect(100,768-150,400,20);
-        bg.fillRect(100,0,2,768-130);
-        bg.fillRect(200,0,2,768-130);
-        bg.fillRect(300,0,2,768-130);
-        bg.fillRect(400,0,2,768-130);
-        bg.fillRect(500,0,2,768-130);
-
-        Graphics2D g2 = (Graphics2D) bg;
-        if(q){
-            bg.fillRect(100,768-150,100,20);
-            g2.drawImage(picture, 100, 120, this);
+        //Removes note if you are waaaaaay too late
+        double timing = y + coord1.getCoord(0);
+        if(timing>=line+50){
+            coord1.removeFirst();
         }
-        if(w){
-            bg.fillRect(200,768-150,100,20);
-            g2.drawImage(picture, 200, 120, this);
+        timing = y + coord2.getCoord(0);
+        if(timing>=line+50){
+            coord2.removeFirst();
         }
-        if(e){
-            bg.fillRect(300,768-150,100,20);
-            g2.drawImage(picture, 300, 120, this);
+        timing = y + coord3.getCoord(0);
+        if(timing>=line+50){
+            coord3.removeFirst();
         }
-        if(r){
-            bg.fillRect(400,768-150,100,20);
-            g2.drawImage(picture, 400, 120, this);
+        timing = y + coord4.getCoord(0);
+        if(timing>=line+50){
+            coord4.removeFirst();
         }
 
-        //draw the picture
-        for (int i=0;i<coord1Length;i++){
-            bg.fillRect(100,coord1.getCoord(i)+(int)y,100,20);
-        }
-        for (int i=0;i<coord2Length;i++){
-            bg.fillRect(200,coord2.getCoord(i)+(int)y,100,20);
-        }
-        for (int i=0;i<coord3Length;i++){
-            bg.fillRect(300,coord3.getCoord(i)+(int)y,100,20);
-        }
-        for (int i=0;i<coord4Length;i++){
-            bg.fillRect(400,coord4.getCoord(i)+(int)y,100,20);
-        }
+            bg.setColor(Color.WHITE);
+            bg.drawRect(100,768-150,400,20);
+            bg.fillRect(100,0,2,768-130);
+            bg.fillRect(200,0,2,768-130);
+            bg.fillRect(300,0,2,768-130);
+            bg.fillRect(400,0,2,768-130);
+            bg.fillRect(500,0,2,768-130);
 
-        //Scoring
-
-        score = scoreL1 + scoreL2 + scoreL3 + scoreL4;
-        String scoreString = ""+score;
-        String[] scoreStringParts = scoreString.split("");
-        for(String s:scoreStringParts){
-            scoreDigits.add(Integer.parseInt(s));
-        }
-
-        if(scoreDigits.size()>=6){
-            bg.drawImage(score9, 650, 100, null);
-            bg.drawImage(score9, 700, 100, null);
-            bg.drawImage(score9, 750, 100, null);
-            bg.drawImage(score9, 800, 100, null);
-            bg.drawImage(score9, 850, 100, null);
-        } else{
-
-            //TenThousand's Digit
-            if(scoreDigits.size()>=5){
-                if(scoreDigits.get(scoreDigits.size()-5) == 0){
-                    bg.drawImage(score0, 650, 100, null);
-                }else if(scoreDigits.get(scoreDigits.size()-5) == 1){
-                    bg.drawImage(score1, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 2){
-                    bg.drawImage(score2, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 3){
-                    bg.drawImage(score3, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 4){
-                    bg.drawImage(score4, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5)== 5){
-                    bg.drawImage(score5, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 6){
-                    bg.drawImage(score6, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 7){
-                    bg.drawImage(score7, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 8){
-                    bg.drawImage(score8, 650, 100, null);
-                }else {
-                    bg.drawImage(score9, 650, 100, null);
-                }
-            } else{bg.drawImage(score0, 650, 100, null);}
-
-            //Thousand's Digit
-            if(scoreDigits.size()>=4){
-                if(scoreDigits.get(scoreDigits.size()-4) == 0){
-                    bg.drawImage(score0, 700, 100, null);
-                }else if(scoreDigits.get(scoreDigits.size()-4) == 1){
-                    bg.drawImage(score1, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 2){
-                    bg.drawImage(score2, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 3){
-                    bg.drawImage(score3, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 4){
-                    bg.drawImage(score4, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4)== 5){
-                    bg.drawImage(score5, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 6){
-                    bg.drawImage(score6, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 7){
-                    bg.drawImage(score7, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 8){
-                    bg.drawImage(score8, 700, 100, null);
-                }else {
-                    bg.drawImage(score9, 700, 100, null);
-                }
-            } else{bg.drawImage(score0, 700, 100, null);}
-
-            //Hundred's Digit
-            if(scoreDigits.size()>=3){
-                if(scoreDigits.get(scoreDigits.size()-3) == 0){
-                    bg.drawImage(score0, 750, 100, null);
-                }else if(scoreDigits.get(scoreDigits.size()-3) == 1){
-                    bg.drawImage(score1, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 2){
-                    bg.drawImage(score2, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 3){
-                    bg.drawImage(score3, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 4){
-                    bg.drawImage(score4, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3)== 5){
-                    bg.drawImage(score5, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 6){
-                    bg.drawImage(score6, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 7){
-                    bg.drawImage(score7, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 8){
-                    bg.drawImage(score8, 750, 100, null);
-                }else {
-                    bg.drawImage(score9, 750, 100, null);
-                }
-            } else{bg.drawImage(score0, 750, 100, null);}
-
-            //Ten's Digit
-            if(scoreDigits.size()>=2){
-                if(scoreDigits.get(scoreDigits.size()-2) == 0){
-                    bg.drawImage(score0, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 1){
-                    bg.drawImage(score1, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 2){
-                    bg.drawImage(score2, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 3){
-                    bg.drawImage(score3, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 4){
-                    bg.drawImage(score4, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2)== 5){
-                    bg.drawImage(score5, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 6){
-                    bg.drawImage(score6, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 7){
-                    bg.drawImage(score7, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 8){
-                    bg.drawImage(score8, 800, 100, null);
-                }else {
-                    bg.drawImage(score9, 800, 100, null);
-                }
-            } else {bg.drawImage(score0, 800, 100, null);}
-
-            if(scoreDigits.get(scoreDigits.size()-1) == 0){
-                bg.drawImage(score0, 850, 100, null);
-            } else if (scoreDigits.get(scoreDigits.size()-1) == 1){
-                bg.drawImage(score1, 850, 100, null);
-            }else if (scoreDigits.get(scoreDigits.size()-1) == 2){
-                bg.drawImage(score2, 850, 100, null);
-            }else if (scoreDigits.get(scoreDigits.size()-1) == 3){
-                bg.drawImage(score3, 850, 100, null);
-            }else if (scoreDigits.get(scoreDigits.size()-1) == 4){
-                bg.drawImage(score4, 850, 100, null);
-            }else if (scoreDigits.get(scoreDigits.size()-1)== 5){
-                bg.drawImage(score5, 850, 100, null);
-            }else if (scoreDigits.get(scoreDigits.size()-1) == 6){
-                bg.drawImage(score6, 850, 100, null);
-            }else if (scoreDigits.get(scoreDigits.size()-1) == 7){
-                bg.drawImage(score7, 850, 100, null);
-            }else if (scoreDigits.get(scoreDigits.size()-1) == 8){
-                bg.drawImage(score8, 850, 100, null);
-            }else {
-                bg.drawImage(score9, 850, 100, null);
+            Graphics2D g2 = (Graphics2D) bg;
+            if(q){
+                bg.fillRect(100,768-150,100,20);
+                g2.drawImage(picture, 100, 120, this);
             }
-        }
-        scoreDigits.clear();
-        x+=xInc;
-        y+=1;
+            if(w){
+                bg.fillRect(200,768-150,100,20);
+                g2.drawImage(picture, 200, 120, this);
+            }
+            if(e){
+                bg.fillRect(300,768-150,100,20);
+                g2.drawImage(picture, 300, 120, this);
+            }
+            if(r){
+                bg.fillRect(400,768-150,100,20);
+                g2.drawImage(picture, 400, 120, this);
+            }
 
-        //Progress Bar
-        bg.setColor(Color.BLACK);
-        bg.fillRect(0,0,1024,20);
-        bg.drawImage(pBarFull,14,1,null);
-        bg.fillRect((int)(578*(y/11700))+14,0,1024,20);
-        bg.drawImage(pBarEmpty, 10, -15, null);
+            //draw the picture
+            for (int i=0;i<coord1.length();i++){
+                bg.fillRect(100,coord1.getCoord(i)+(int)y,100,20);
+            }
+            for (int i=0;i<coord2.length();i++){
+                bg.fillRect(200,coord2.getCoord(i)+(int)y,100,20);
+            }
+            for (int i=0;i<coord3.length();i++){
+                bg.fillRect(300,coord3.getCoord(i)+(int)y,100,20);
+            }
+            for (int i=0;i<coord4.length();i++){
+                bg.fillRect(400,coord4.getCoord(i)+(int)y,100,20);
+            }
 
-        //(int)(1024*(y/11500))
-        //Array instead of arraylist is much less lag. 
-        //for loop instead of foreach is much less lag.
-        /*long endTime = System.currentTimeMillis();
-        totalTime = endTime - startTime;
-        endTime = System.currentTimeMillis();
-        totalTime = endTime - startTime;
-        //at the END of the method, make changes to the x and y values
-        // so they move slightly on the next redraw
+            //Scoring
 
-        //often, you'll want to check for the edges of the screen
-        //and make your picture change direction instead of going
-        //off the screen.
+            score = scoreL1 + scoreL2 + scoreL3 + scoreL4;
+            String scoreString = ""+score;
+            String[] scoreStringParts = scoreString.split("");
+            for(String s:scoreStringParts){
+                scoreDigits.add(Integer.parseInt(s));
+            }
 
-        //made to "track" the time when the rectangles should hit the line
-        g.setColor(Color.RED);
-        if(qInt>0){
-        if(qInt==1){
-        yNow=y;
-        qInt=2;
-        }
-        g.drawString(""+yNow,150,100); 
-        }
-        if(wInt>0){
-        if(wInt==1){
-        yNow=y;
-        wInt=2;
-        }
-        g.drawString(""+yNow,150,100);   
-        }
-        if(eInt>0){
-        if(eInt==1){
-        yNow=y;
-        eInt=2;
-        }
-        g.drawString(""+yNow,150,100);   
-        }
-        if(rInt>0){
-        if(rInt==1){
-        yNow=y;
-        rInt=2;
-        }
-        g.drawString(""+yNow,150,100); 
-        }*/
-        g.drawImage(renderFrame,0,0,this);
+            if(scoreDigits.size()>=6){
+                bg.drawImage(score9, 650, 100, null);
+                bg.drawImage(score9, 700, 100, null);
+                bg.drawImage(score9, 750, 100, null);
+                bg.drawImage(score9, 800, 100, null);
+                bg.drawImage(score9, 850, 100, null);
+            } else{
 
+                //TenThousand's Digit
+                if(scoreDigits.size()>=5){
+                    if(scoreDigits.get(scoreDigits.size()-5) == 0){
+                        bg.drawImage(score0, 650, 100, null);
+                    }else if(scoreDigits.get(scoreDigits.size()-5) == 1){
+                        bg.drawImage(score1, 650, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-5) == 2){
+                        bg.drawImage(score2, 650, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-5) == 3){
+                        bg.drawImage(score3, 650, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-5) == 4){
+                        bg.drawImage(score4, 650, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-5)== 5){
+                        bg.drawImage(score5, 650, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-5) == 6){
+                        bg.drawImage(score6, 650, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-5) == 7){
+                        bg.drawImage(score7, 650, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-5) == 8){
+                        bg.drawImage(score8, 650, 100, null);
+                    }else {
+                        bg.drawImage(score9, 650, 100, null);
+                    }
+                } else{bg.drawImage(score0, 650, 100, null);}
+
+                //Thousand's Digit
+                if(scoreDigits.size()>=4){
+                    if(scoreDigits.get(scoreDigits.size()-4) == 0){
+                        bg.drawImage(score0, 700, 100, null);
+                    }else if(scoreDigits.get(scoreDigits.size()-4) == 1){
+                        bg.drawImage(score1, 700, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-4) == 2){
+                        bg.drawImage(score2, 700, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-4) == 3){
+                        bg.drawImage(score3, 700, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-4) == 4){
+                        bg.drawImage(score4, 700, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-4)== 5){
+                        bg.drawImage(score5, 700, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-4) == 6){
+                        bg.drawImage(score6, 700, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-4) == 7){
+                        bg.drawImage(score7, 700, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-4) == 8){
+                        bg.drawImage(score8, 700, 100, null);
+                    }else {
+                        bg.drawImage(score9, 700, 100, null);
+                    }
+                } else{bg.drawImage(score0, 700, 100, null);}
+
+                //Hundred's Digit
+                if(scoreDigits.size()>=3){
+                    if(scoreDigits.get(scoreDigits.size()-3) == 0){
+                        bg.drawImage(score0, 750, 100, null);
+                    }else if(scoreDigits.get(scoreDigits.size()-3) == 1){
+                        bg.drawImage(score1, 750, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-3) == 2){
+                        bg.drawImage(score2, 750, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-3) == 3){
+                        bg.drawImage(score3, 750, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-3) == 4){
+                        bg.drawImage(score4, 750, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-3)== 5){
+                        bg.drawImage(score5, 750, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-3) == 6){
+                        bg.drawImage(score6, 750, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-3) == 7){
+                        bg.drawImage(score7, 750, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-3) == 8){
+                        bg.drawImage(score8, 750, 100, null);
+                    }else {
+                        bg.drawImage(score9, 750, 100, null);
+                    }
+                } else{bg.drawImage(score0, 750, 100, null);}
+
+                //Ten's Digit
+                if(scoreDigits.size()>=2){
+                    if(scoreDigits.get(scoreDigits.size()-2) == 0){
+                        bg.drawImage(score0, 800, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-2) == 1){
+                        bg.drawImage(score1, 800, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-2) == 2){
+                        bg.drawImage(score2, 800, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-2) == 3){
+                        bg.drawImage(score3, 800, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-2) == 4){
+                        bg.drawImage(score4, 800, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-2)== 5){
+                        bg.drawImage(score5, 800, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-2) == 6){
+                        bg.drawImage(score6, 800, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-2) == 7){
+                        bg.drawImage(score7, 800, 100, null);
+                    }else if (scoreDigits.get(scoreDigits.size()-2) == 8){
+                        bg.drawImage(score8, 800, 100, null);
+                    }else {
+                        bg.drawImage(score9, 800, 100, null);
+                    }
+                } else {bg.drawImage(score0, 800, 100, null);}
+
+                if(scoreDigits.get(scoreDigits.size()-1) == 0){
+                    bg.drawImage(score0, 850, 100, null);
+                } else if (scoreDigits.get(scoreDigits.size()-1) == 1){
+                    bg.drawImage(score1, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-1) == 2){
+                    bg.drawImage(score2, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-1) == 3){
+                    bg.drawImage(score3, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-1) == 4){
+                    bg.drawImage(score4, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-1)== 5){
+                    bg.drawImage(score5, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-1) == 6){
+                    bg.drawImage(score6, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-1) == 7){
+                    bg.drawImage(score7, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-1) == 8){
+                    bg.drawImage(score8, 850, 100, null);
+                }else {
+                    bg.drawImage(score9, 850, 100, null);
+                }
+            }
+            scoreDigits.clear();
+            x+=xInc;
+            y+=1;
+
+            //Progress Bar
+            bg.setColor(Color.BLACK);
+            bg.fillRect(0,0,1024,20);
+            bg.drawImage(pBarFull,14,1,null);
+            bg.fillRect((int)(578*(y/11700))+14,0,1024,20);
+            bg.drawImage(pBarEmpty, 10, -15, null);
+
+            //(int)(1024*(y/11500))
+            //Array instead of arraylist is much less lag. 
+            //for loop instead of foreach is much less lag.
+            /*long endTime = System.currentTimeMillis();
+            totalTime = endTime - startTime;
+            endTime = System.currentTimeMillis();
+            totalTime = endTime - startTime;
+            //at the END of the method, make changes to the x and y values
+            // so they move slightly on the next redraw
+
+            //often, you'll want to check for the edges of the screen
+            //and make your picture change direction instead of going
+            //off the screen.
+
+            //made to "track" the time when the rectangles should hit the line
+            g.setColor(Color.RED);
+            if(qInt>0){
+            if(qInt==1){
+            yNow=y;
+            qInt=2;
+            }
+            g.drawString(""+yNow,150,100); 
+            }
+            if(wInt>0){
+            if(wInt==1){
+            yNow=y;
+            wInt=2;
+            }
+            g.drawString(""+yNow,150,100);   
+            }
+            if(eInt>0){
+            if(eInt==1){
+            yNow=y;
+            eInt=2;
+            }
+            g.drawString(""+yNow,150,100);   
+            }
+            if(rInt>0){
+            if(rInt==1){
+            yNow=y;
+            rInt=2;
+            }
+            g.drawString(""+yNow,150,100); 
+            }*/
+            g.drawImage(renderFrame,0,0,this);
+
+        }
     }
-}
 
