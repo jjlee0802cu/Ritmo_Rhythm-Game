@@ -1001,7 +1001,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }
         scoreDigits.clear();
         x+=xInc;
-        y+=1.05;
+        y+=1.01;
 
         //Progress Bar
         bg.setColor(Color.BLACK);
