@@ -174,9 +174,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord1++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL1>0){
+                        scoreL1-=1;
+                    }
                     startCoord1++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL1>0){
+                        scoreL1-=1;
+                    }
                 }
             }
         }
@@ -203,9 +209,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord2++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL2>0){
+                        scoreL2-=1;
+                    }
                     startCoord2++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL2>0){
+                        scoreL2-=1;
+                    }
                 }
             }
         }
@@ -232,9 +244,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord3++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL3>0){
+                        scoreL3-=1;
+                    }
                     startCoord3++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL3>0){
+                        scoreL3-=1;
+                    }
                 }
             }
         }
@@ -261,9 +279,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord4++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL4>0){
+                        scoreL4-=1;
+                    }
                     startCoord4++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL4>0){
+                        scoreL4-=1;
+                    }
                 }
             }
         }
@@ -293,9 +317,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord1++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL1>0){
+                        scoreL1-=1;
+                    }
                     startCoord1++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL1>0){
+                        scoreL1-=1;
+                    }
                 }
             }
         }
@@ -322,9 +352,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord2++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL2>0){
+                        scoreL2-=1;
+                    }
                     startCoord2++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL2>0){
+                        scoreL2-=1;
+                    }
                 }
             }
         }
@@ -351,9 +387,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord3++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL3>0){
+                        scoreL3-=1;
+                    }
                     startCoord3++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL3>0){
+                        scoreL3-=1;
+                    }
                 }
             }
         }
@@ -380,9 +422,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord4++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL4>0){
+                        scoreL4-=1;
+                    }
                     startCoord4++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL4>0){
+                        scoreL4-=1;
+                    }
                 }
             }
         }
@@ -412,9 +460,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord1++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL1>0){
+                        scoreL1-=1;
+                    }
                     startCoord1++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL1>0){
+                        scoreL1-=1;
+                    }
                 }
             }
         }
@@ -441,9 +495,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord2++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL2>0){
+                        scoreL2-=1;
+                    }
                     startCoord2++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL2>0){
+                        scoreL2-=1;
+                    }
                 }
             }
         }
@@ -470,9 +530,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord3++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL3>0){
+                        scoreL3-=1;
+                    }
                     startCoord3++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL3>0){
+                        scoreL3-=1;
+                    }
                 }
             }
         }
@@ -499,9 +565,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord4++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL4>0){
+                        scoreL4-=1;
+                    }
                     startCoord4++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL4>0){
+                        scoreL4-=1;
+                    }
                 }
             }
         }
@@ -531,9 +603,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord1++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL1>0){
+                        scoreL1-=1;
+                    }
                     startCoord1++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL1>0){
+                        scoreL1-=1;
+                    }
                 }
             }
         }
@@ -560,9 +638,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord2++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL2>0){
+                        scoreL2-=1;
+                    }
                     startCoord2++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL2>0){
+                        scoreL2-=1;
+                    }
                 }
             }
         }
@@ -589,9 +673,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord3++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL3>0){
+                        scoreL3-=1;
+                    }
                     startCoord3++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL3>0){
+                        scoreL3-=1;
+                    }
                 }
             }
         }
@@ -618,9 +708,15 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                     startCoord4++;
                 } else if(timing>=line-50){
                     //Missed
+                    if(scoreL4>0){
+                        scoreL4-=1;
+                    }
                     startCoord4++;
                 } else {
-                    //If too early, nothing happens
+                    //If too early, deduct 1 point
+                    if(scoreL4>0){
+                        scoreL4-=1;
+                    }
                 }
             }
         }
@@ -905,7 +1001,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }
         scoreDigits.clear();
         x+=xInc;
-        y+=1;
+        y+=1.05;
 
         //Progress Bar
         bg.setColor(Color.BLACK);
