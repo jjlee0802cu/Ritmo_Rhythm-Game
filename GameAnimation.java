@@ -66,7 +66,6 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     private boolean playE=true;
     private boolean playR=true;
     private double yNow=0;
-    
 
     //for scoring
     private int scoreL1 = 0;
@@ -74,6 +73,10 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     private  int scoreL3 = 0;
     private int scoreL4 = 0;
     private int score = scoreL1 + scoreL2 + scoreL3 + scoreL4;
+    private String preciseQ;
+    private String preciseW;
+    private String preciseE;
+    private String preciseR;
     private int combo=0;
     ArrayList<Integer> scoreDigits= new ArrayList<Integer>();
 
@@ -163,25 +166,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord1<coord1.length()){
                 double timing = y + coord1.getCoord(startCoord1);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL1+=2;
+                    combo++;
+                    scoreL1+=300+((300*combo)/25);
                     startCoord1++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL1+=1;
+                    preciseQ="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL1+=200+((200*combo)/25);
                     startCoord1++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL1>0){
-                        scoreL1-=1;
-                    }
+                    preciseQ="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL1+=100+((100*combo)/25);
                     startCoord1++;
+                    preciseQ="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL1+=50+((50*combo)/25);
+                    startCoord1++;
+                    preciseQ="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord1++;
+                    preciseQ="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL1>0){
-                        // scoreL1-=1;
-                    // }
+                    preciseQ="miss";
+                    combo=0;
                 }
             }
         }
@@ -198,25 +217,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord2<coord2.length()){
                 double timing = y + coord2.getCoord(startCoord2);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL2+=2;
+                    combo++;
+                    scoreL2+=300+((300*combo)/25);
                     startCoord2++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL2+=1;
+                    preciseW="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL2+=200+((200*combo)/25);
                     startCoord2++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL2>0){
-                        scoreL2-=1;
-                    }
+                    preciseW="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL2+=100+((100*combo)/25);
                     startCoord2++;
+                    preciseW="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL2+=50+((50*combo)/25);
+                    startCoord2++;
+                    preciseW="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord2++;
+                    preciseW="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL2>0){
-                        // scoreL2-=1;
-                    // }
+                    preciseW="miss";
+                    combo=0;
                 }
             }
         }
@@ -233,25 +268,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord3<coord3.length()){
                 double timing = y + coord3.getCoord(startCoord3);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL3+=2;
+                    combo++;
+                    scoreL3+=300+((300*combo)/25);
                     startCoord3++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL3+=1;
+                    preciseE="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL3+=200+((200*combo)/25);
                     startCoord3++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL3>0){
-                        scoreL3-=1;
-                    }
+                    preciseE="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL3+=100+((100*combo)/25);
                     startCoord3++;
+                    preciseE="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL3+=50+((50*combo)/25);
+                    startCoord3++;
+                    preciseE="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord3++;
+                    preciseE="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL3>0){
-                        // scoreL3-=1;
-                    // }
+                    preciseE="miss";
+                    combo=0;
                 }
             }
         }
@@ -268,25 +319,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord4<coord4.length()){
                 double timing = y + coord4.getCoord(startCoord4);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL4+=2;
+                    combo++;
+                    scoreL4+=300+((300*combo)/25);
                     startCoord4++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL4+=1;
+                    preciseR="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL4+=200+((200*combo)/25);
                     startCoord4++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL4>0){
-                        scoreL4-=1;
-                    }
+                    preciseR="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL4+=100+((100*combo)/25);
                     startCoord4++;
+                    preciseR="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL4+=50+((50*combo)/25);
+                    startCoord4++;
+                    preciseR="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord4++;
+                    preciseR="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL4>0){
-                        // scoreL4-=1;
-                    // }
+                    preciseR="miss";
+                    combo=0;
                 }
             }
         }
@@ -306,25 +373,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord1<coord1.length()){
                 double timing = y + coord1.getCoord(startCoord1);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL1+=2;
+                    combo++;
+                    scoreL1+=300+((300*combo)/25);
                     startCoord1++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL1+=1;
+                    preciseQ="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL1+=200+((200*combo)/25);
                     startCoord1++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL1>0){
-                        scoreL1-=1;
-                    }
+                    preciseQ="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL1+=100+((100*combo)/25);
                     startCoord1++;
+                    preciseQ="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL1+=50+((50*combo)/25);
+                    startCoord1++;
+                    preciseQ="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord1++;
+                    preciseQ="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL1>0){
-                        // scoreL1-=1;
-                    // }
+                    preciseQ="miss";
+                    combo=0;
                 }
             }
         }
@@ -341,25 +424,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord2<coord2.length()){
                 double timing = y + coord2.getCoord(startCoord2);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL2+=2;
+                    combo++;
+                    scoreL2+=300+((300*combo)/25);
                     startCoord2++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL2+=1;
+                    preciseW="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL2+=200+((200*combo)/25);
                     startCoord2++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL2>0){
-                        scoreL2-=1;
-                    }
+                    preciseW="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL2+=100+((100*combo)/25);
                     startCoord2++;
+                    preciseW="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL2+=50+((50*combo)/25);
+                    startCoord2++;
+                    preciseW="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord2++;
+                    preciseW="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL2>0){
-                        // scoreL2-=1;
-                    // }
+                    preciseW="miss";
+                    combo=0;
                 }
             }
         }
@@ -376,25 +475,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord3<coord3.length()){
                 double timing = y + coord3.getCoord(startCoord3);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL3+=2;
+                    combo++;
+                    scoreL3+=300+((300*combo)/25);
                     startCoord3++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL3+=1;
+                    preciseE="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL3+=200+((200*combo)/25);
                     startCoord3++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL3>0){
-                        scoreL3-=1;
-                    }
+                    preciseE="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL3+=100+((100*combo)/25);
                     startCoord3++;
+                    preciseE="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL3+=50+((50*combo)/25);
+                    startCoord3++;
+                    preciseE="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord3++;
+                    preciseE="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL3>0){
-                        // scoreL3-=1;
-                    // }
+                    preciseE="miss";
+                    combo=0;
                 }
             }
         }
@@ -411,25 +526,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord4<coord4.length()){
                 double timing = y + coord4.getCoord(startCoord4);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL4+=2;
+                    combo++;
+                    scoreL4+=300+((300*combo)/25);
                     startCoord4++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL4+=1;
+                    preciseR="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL4+=200+((200*combo)/25);
                     startCoord4++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL4>0){
-                        scoreL4-=1;
-                    }
+                    preciseR="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL4+=100+((100*combo)/25);
                     startCoord4++;
+                    preciseR="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL4+=50+((50*combo)/25);
+                    startCoord4++;
+                    preciseR="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord4++;
+                    preciseR="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL4>0){
-                        // scoreL4-=1;
-                    // }
+                    preciseR="miss";
+                    combo=0;
                 }
             }
         }
@@ -449,25 +580,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord1<coord1.length()){
                 double timing = y + coord1.getCoord(startCoord1);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL1+=2;
+                    combo++;
+                    scoreL1+=300+((300*combo)/25);
                     startCoord1++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL1+=1;
+                    preciseQ="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL1+=200+((200*combo)/25);
                     startCoord1++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL1>0){
-                        scoreL1-=1;
-                    }
+                    preciseQ="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL1+=100+((100*combo)/25);
                     startCoord1++;
+                    preciseQ="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL1+=50+((50*combo)/25);
+                    startCoord1++;
+                    preciseQ="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord1++;
+                    preciseQ="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL1>0){
-                        // scoreL1-=1;
-                    // }
+                    preciseQ="miss";
+                    combo=0;
                 }
             }
         }
@@ -484,25 +631,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord2<coord2.length()){
                 double timing = y + coord2.getCoord(startCoord2);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL2+=2;
+                    combo++;
+                    scoreL2+=300+((300*combo)/25);
                     startCoord2++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL2+=1;
+                    preciseW="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL2+=200+((200*combo)/25);
                     startCoord2++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL2>0){
-                        scoreL2-=1;
-                    }
+                    preciseW="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL2+=100+((100*combo)/25);
                     startCoord2++;
+                    preciseW="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL2+=50+((50*combo)/25);
+                    startCoord2++;
+                    preciseW="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord2++;
+                    preciseW="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL2>0){
-                        // scoreL2-=1;
-                    // }
+                    preciseW="miss";
+                    combo=0;
                 }
             }
         }
@@ -519,25 +682,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord3<coord3.length()){
                 double timing = y + coord3.getCoord(startCoord3);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL3+=2;
+                    combo++;
+                    scoreL3+=300+((300*combo)/25);
                     startCoord3++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL3+=1;
+                    preciseE="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL3+=200+((200*combo)/25);
                     startCoord3++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL3>0){
-                        scoreL3-=1;
-                    }
+                    preciseE="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL3+=100+((100*combo)/25);
                     startCoord3++;
+                    preciseE="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL3+=50+((50*combo)/25);
+                    startCoord3++;
+                    preciseE="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord3++;
+                    preciseE="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL3>0){
-                        // scoreL3-=1;
-                    // }
+                    preciseE="miss";
+                    combo=0;
                 }
             }
         }
@@ -554,25 +733,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord4<coord4.length()){
                 double timing = y + coord4.getCoord(startCoord4);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL4+=2;
+                    combo++;
+                    scoreL4+=300+((300*combo)/25);
                     startCoord4++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL4+=1;
+                    preciseR="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL4+=200+((200*combo)/25);
                     startCoord4++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL4>0){
-                        scoreL4-=1;
-                    }
+                    preciseR="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL4+=100+((100*combo)/25);
                     startCoord4++;
+                    preciseR="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL4+=50+((50*combo)/25);
+                    startCoord4++;
+                    preciseR="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord4++;
+                    preciseR="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL4>0){
-                        // scoreL4-=1;
-                    // }
+                    preciseR="miss";
+                    combo=0;
                 }
             }
         }
@@ -592,25 +787,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord1<coord1.length()){
                 double timing = y + coord1.getCoord(startCoord1);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL1+=2;
+                    combo++;
+                    scoreL1+=300+((300*combo)/25);
                     startCoord1++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL1+=1;
+                    preciseQ="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL1+=200+((200*combo)/25);
                     startCoord1++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL1>0){
-                        scoreL1-=1;
-                    }
+                    preciseQ="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL1+=100+((100*combo)/25);
                     startCoord1++;
+                    preciseQ="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL1+=50+((50*combo)/25);
+                    startCoord1++;
+                    preciseQ="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord1++;
+                    preciseQ="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL1>0){
-                        // scoreL1-=1;
-                    // }
+                    preciseQ="miss";
+                    combo=0;
                 }
             }
         }
@@ -627,25 +838,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord2<coord2.length()){
                 double timing = y + coord2.getCoord(startCoord2);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL2+=2;
+                    combo++;
+                    scoreL2+=300+((300*combo)/25);
                     startCoord2++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL2+=1;
+                    preciseW="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL2+=200+((200*combo)/25);
                     startCoord2++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL2>0){
-                        scoreL2-=1;
-                    }
+                    preciseW="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL2+=100+((100*combo)/25);
                     startCoord2++;
+                    preciseW="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL2+=50+((50*combo)/25);
+                    startCoord2++;
+                    preciseW="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord2++;
+                    preciseW="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL2>0){
-                        // scoreL2-=1;
-                    // }
+                    preciseW="miss";
+                    combo=0;
                 }
             }
         }
@@ -662,25 +889,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord3<coord3.length()){
                 double timing = y + coord3.getCoord(startCoord3);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL3+=2;
+                    combo++;
+                    scoreL3+=300+((300*combo)/25);
                     startCoord3++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL3+=1;
+                    preciseE="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL3+=200+((200*combo)/25);
                     startCoord3++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL3>0){
-                        scoreL3-=1;
-                    }
+                    preciseE="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL3+=100+((100*combo)/25);
                     startCoord3++;
+                    preciseE="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL3+=50+((50*combo)/25);
+                    startCoord3++;
+                    preciseE="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord3++;
+                    preciseE="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL3>0){
-                        // scoreL3-=1;
-                    // }
+                    preciseE="miss";
+                    combo=0;
                 }
             }
         }
@@ -697,25 +940,41 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
 
             if(startCoord4<coord4.length()){
                 double timing = y + coord4.getCoord(startCoord4);
-                if(timing<=line+20 && timing>=line-20){
+                if(timing<=line+10 && timing>=line-10){
                     //Perfect
-                    scoreL4+=2;
+                    combo++;
+                    scoreL4+=300+((300*combo)/25);
                     startCoord4++;
-                } else if(timing<=line+30 && timing>=line-30){
-                    //Late or Early
-                    scoreL4+=1;
+                    preciseR="excellent";
+                } 
+                else if(timing<=line+20 && timing>=line-20){
+                    //Great
+                    combo++;
+                    scoreL4+=200+((200*combo)/25);
                     startCoord4++;
-                } else if(timing>=line-50){
-                    //Missed
-                    if(scoreL4>0){
-                        scoreL4-=1;
-                    }
+                    preciseR="great";
+                } 
+                else if(timing<=line+30 && timing>=line-30){
+                    //Good
+                    combo++;
+                    scoreL4+=100+((100*combo)/25);
                     startCoord4++;
+                    preciseR="good";
+                } 
+                else if(timing<=line+40 && timing>=line-40){
+                    //Bad
+                    combo++;
+                    scoreL4+=50+((50*combo)/25);
+                    startCoord4++;
+                    preciseR="bad";
+                }else if(timing>=line-50){
+                    //Missed 
+                    startCoord4++;
+                    preciseR="miss";
+                    combo=0;
                 } else {
-                    //If too early, deduct 1 point
-                    // if(scoreL4>0){
-                        // scoreL4-=1;
-                    // }
+                    preciseR="miss";
+                    combo=0;
                 }
             }
         }
