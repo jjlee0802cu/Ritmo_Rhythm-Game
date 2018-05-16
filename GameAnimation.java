@@ -57,25 +57,24 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     private Image introBackground;
 
     //for tracking
-    int qInt=0;
-    int wInt=0;
-    int eInt=0;
-    int rInt=0;
-    boolean playQ=true;
-    boolean playW=true;
-    boolean playE=true;
-    boolean playR=true;
-    double yNow=0;
-
-    //
+    private int qInt=0;
+    private int wInt=0;
+    private int eInt=0;
+    private int rInt=0;
+    private boolean playQ=true;
+    private boolean playW=true;
+    private boolean playE=true;
+    private boolean playR=true;
+    private double yNow=0;
+    
 
     //for scoring
-    int scoreL1 = 0;
-    int scoreL2 = 0;
-    int scoreL3 = 0;
-    int scoreL4 = 0;
-    int score = scoreL1 + scoreL2 + scoreL3 + scoreL4;
-
+    private int scoreL1 = 0;
+    private int scoreL2 = 0;
+    private  int scoreL3 = 0;
+    private int scoreL4 = 0;
+    private int score = scoreL1 + scoreL2 + scoreL3 + scoreL4;
+    private int combo=0;
     ArrayList<Integer> scoreDigits= new ArrayList<Integer>();
 
     public void debug(int width, int height) throws Exception {
