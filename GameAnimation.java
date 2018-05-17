@@ -1097,7 +1097,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             g2.drawImage(picture, 100, 120, this);
             if(y<yNow+500){
                 if(preciseQ.equals("excellent")){
-                    g2.drawImage(excellent, 100, 700, this);
+                    g2.drawImage(excellent, 100, 650, this);
                 }
                 else if(preciseQ.equals("great")){
                     g2.drawImage(great, 100, 650, this);
@@ -1118,7 +1118,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             g2.drawImage(picture, 200, 120, this);
             if(y<yNow+500){
                 if(preciseW.equals("excellent")){
-                    g2.drawImage(excellent, 200, 650, this);
+                    g2.drawImage(excellent, 200, 700, this);
                 }
                 else if(preciseW.equals("great")){
                     g2.drawImage(great, 200, 650, this);
@@ -1139,7 +1139,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             g2.drawImage(picture, 300, 120, this);
             if(y<yNow+500){
                 if(preciseE.equals("excellent")){
-                    g2.drawImage(excellent, 300, 700, this);
+                    g2.drawImage(excellent, 300, 650, this);
                 }
                 else if(preciseE.equals("great")){
                     g2.drawImage(great, 300, 650, this);
@@ -1160,7 +1160,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             g2.drawImage(picture, 400, 120, this);
             if(y<yNow+500){
                 if(preciseR.equals("excellent")){
-                    g2.drawImage(excellent, 400, 650, this);
+                    g2.drawImage(excellent, 400, 700, this);
                 }
                 else if(preciseR.equals("great")){
                     g2.drawImage(great, 400, 650, this);
