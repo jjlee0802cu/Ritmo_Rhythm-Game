@@ -1127,134 +1127,184 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
             scoreDigits.add(Integer.parseInt(s));
         }
 
-        if(scoreDigits.size()>=6){
+        if(scoreDigits.size()>=8){
             bg.drawImage(score9, 650, 100, null);
             bg.drawImage(score9, 700, 100, null);
             bg.drawImage(score9, 750, 100, null);
             bg.drawImage(score9, 800, 100, null);
             bg.drawImage(score9, 850, 100, null);
+            bg.drawImage(score9, 900, 100, null);
+            bg.drawImage(score9, 950, 100, null);
         } else{
 
-            //TenThousand's Digit
-            if(scoreDigits.size()>=5){
-                if(scoreDigits.get(scoreDigits.size()-5) == 0){
+            //Million's Digit
+            if(scoreDigits.size()>=7){
+                if(scoreDigits.get(scoreDigits.size()-7) == 0){
                     bg.drawImage(score0, 650, 100, null);
-                }else if(scoreDigits.get(scoreDigits.size()-5) == 1){
+                }else if(scoreDigits.get(scoreDigits.size()-7) == 1){
                     bg.drawImage(score1, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 2){
+                }else if (scoreDigits.get(scoreDigits.size()-7) == 2){
                     bg.drawImage(score2, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 3){
+                }else if (scoreDigits.get(scoreDigits.size()-7) == 3){
                     bg.drawImage(score3, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 4){
+                }else if (scoreDigits.get(scoreDigits.size()-7) == 4){
                     bg.drawImage(score4, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5)== 5){
+                }else if (scoreDigits.get(scoreDigits.size()-7)== 5){
                     bg.drawImage(score5, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 6){
+                }else if (scoreDigits.get(scoreDigits.size()-7) == 6){
                     bg.drawImage(score6, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 7){
+                }else if (scoreDigits.get(scoreDigits.size()-7) == 7){
                     bg.drawImage(score7, 650, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-5) == 8){
+                }else if (scoreDigits.get(scoreDigits.size()-7) == 8){
                     bg.drawImage(score8, 650, 100, null);
                 }else {
                     bg.drawImage(score9, 650, 100, null);
                 }
             } else{bg.drawImage(score0, 650, 100, null);}
 
-            //Thousand's Digit
-            if(scoreDigits.size()>=4){
-                if(scoreDigits.get(scoreDigits.size()-4) == 0){
+            //Hundred Thousand's Digit
+            if(scoreDigits.size()>=6){
+                if(scoreDigits.get(scoreDigits.size()-6) == 0){
                     bg.drawImage(score0, 700, 100, null);
-                }else if(scoreDigits.get(scoreDigits.size()-4) == 1){
+                }else if(scoreDigits.get(scoreDigits.size()-6) == 1){
                     bg.drawImage(score1, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 2){
+                }else if (scoreDigits.get(scoreDigits.size()-6) == 2){
                     bg.drawImage(score2, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 3){
+                }else if (scoreDigits.get(scoreDigits.size()-6) == 3){
                     bg.drawImage(score3, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 4){
+                }else if (scoreDigits.get(scoreDigits.size()-6) == 4){
                     bg.drawImage(score4, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4)== 5){
+                }else if (scoreDigits.get(scoreDigits.size()-6)== 5){
                     bg.drawImage(score5, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 6){
+                }else if (scoreDigits.get(scoreDigits.size()-6) == 6){
                     bg.drawImage(score6, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 7){
+                }else if (scoreDigits.get(scoreDigits.size()-6) == 7){
                     bg.drawImage(score7, 700, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-4) == 8){
+                }else if (scoreDigits.get(scoreDigits.size()-6) == 8){
                     bg.drawImage(score8, 700, 100, null);
                 }else {
                     bg.drawImage(score9, 700, 100, null);
                 }
             } else{bg.drawImage(score0, 700, 100, null);}
 
-            //Hundred's Digit
-            if(scoreDigits.size()>=3){
-                if(scoreDigits.get(scoreDigits.size()-3) == 0){
+            //Ten Thousand's Digit
+            if(scoreDigits.size()>=5){
+                if(scoreDigits.get(scoreDigits.size()-5) == 0){
                     bg.drawImage(score0, 750, 100, null);
-                }else if(scoreDigits.get(scoreDigits.size()-3) == 1){
+                }else if(scoreDigits.get(scoreDigits.size()-5) == 1){
                     bg.drawImage(score1, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 2){
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 2){
                     bg.drawImage(score2, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 3){
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 3){
                     bg.drawImage(score3, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 4){
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 4){
                     bg.drawImage(score4, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3)== 5){
+                }else if (scoreDigits.get(scoreDigits.size()-5)== 5){
                     bg.drawImage(score5, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 6){
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 6){
                     bg.drawImage(score6, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 7){
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 7){
                     bg.drawImage(score7, 750, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-3) == 8){
+                }else if (scoreDigits.get(scoreDigits.size()-5) == 8){
                     bg.drawImage(score8, 750, 100, null);
                 }else {
                     bg.drawImage(score9, 750, 100, null);
                 }
             } else{bg.drawImage(score0, 750, 100, null);}
 
-            //Ten's Digit
-            if(scoreDigits.size()>=2){
-                if(scoreDigits.get(scoreDigits.size()-2) == 0){
+            //Thousand's Digit
+            if(scoreDigits.size()>=4){
+                if(scoreDigits.get(scoreDigits.size()-4) == 0){
                     bg.drawImage(score0, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 1){
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 1){
                     bg.drawImage(score1, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 2){
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 2){
                     bg.drawImage(score2, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 3){
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 3){
                     bg.drawImage(score3, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 4){
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 4){
                     bg.drawImage(score4, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2)== 5){
+                }else if (scoreDigits.get(scoreDigits.size()-4)== 5){
                     bg.drawImage(score5, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 6){
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 6){
                     bg.drawImage(score6, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 7){
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 7){
                     bg.drawImage(score7, 800, 100, null);
-                }else if (scoreDigits.get(scoreDigits.size()-2) == 8){
+                }else if (scoreDigits.get(scoreDigits.size()-4) == 8){
                     bg.drawImage(score8, 800, 100, null);
                 }else {
                     bg.drawImage(score9, 800, 100, null);
                 }
             } else {bg.drawImage(score0, 800, 100, null);}
-
+            //Hundred's digit
+            if(scoreDigits.size()>=3){
+                if(scoreDigits.get(scoreDigits.size()-3) == 0){
+                    bg.drawImage(score0, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 1){
+                    bg.drawImage(score1, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 2){
+                    bg.drawImage(score2, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 3){
+                    bg.drawImage(score3, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 4){
+                    bg.drawImage(score4, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3)== 5){
+                    bg.drawImage(score5, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 6){
+                    bg.drawImage(score6, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 7){
+                    bg.drawImage(score7, 850, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-3) == 8){
+                    bg.drawImage(score8, 850, 100, null);
+                }else {
+                    bg.drawImage(score9, 850, 100, null);
+                }
+            } else {bg.drawImage(score0, 850, 100, null);}
+            //Ten's Digit
+            if(scoreDigits.size()>=2){
+                if(scoreDigits.get(scoreDigits.size()-2) == 0){
+                    bg.drawImage(score0, 900, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 1){
+                    bg.drawImage(score1, 900, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 2){
+                    bg.drawImage(score2, 900, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 3){
+                    bg.drawImage(score3, 900, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 4){
+                    bg.drawImage(score4, 900, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2)== 5){
+                    bg.drawImage(score5, 900, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 6){
+                    bg.drawImage(score6, 900, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 7){
+                    bg.drawImage(score7, 900, 100, null);
+                }else if (scoreDigits.get(scoreDigits.size()-2) == 8){
+                    bg.drawImage(score8, 900, 100, null);
+                }else {
+                    bg.drawImage(score9, 900, 100, null);
+                }
+            } else {bg.drawImage(score0, 900, 100, null);}
+            //One's Digit
             if(scoreDigits.get(scoreDigits.size()-1) == 0){
-                bg.drawImage(score0, 850, 100, null);
+                bg.drawImage(score0, 950, 100, null);
             } else if (scoreDigits.get(scoreDigits.size()-1) == 1){
-                bg.drawImage(score1, 850, 100, null);
+                bg.drawImage(score1, 950, 100, null);
             }else if (scoreDigits.get(scoreDigits.size()-1) == 2){
-                bg.drawImage(score2, 850, 100, null);
+                bg.drawImage(score2, 950, 100, null);
             }else if (scoreDigits.get(scoreDigits.size()-1) == 3){
-                bg.drawImage(score3, 850, 100, null);
+                bg.drawImage(score3, 950, 100, null);
             }else if (scoreDigits.get(scoreDigits.size()-1) == 4){
-                bg.drawImage(score4, 850, 100, null);
+                bg.drawImage(score4, 950, 100, null);
             }else if (scoreDigits.get(scoreDigits.size()-1)== 5){
-                bg.drawImage(score5, 850, 100, null);
+                bg.drawImage(score5, 950, 100, null);
             }else if (scoreDigits.get(scoreDigits.size()-1) == 6){
-                bg.drawImage(score6, 850, 100, null);
+                bg.drawImage(score6, 950, 100, null);
             }else if (scoreDigits.get(scoreDigits.size()-1) == 7){
-                bg.drawImage(score7, 850, 100, null);
+                bg.drawImage(score7, 950, 100, null);
             }else if (scoreDigits.get(scoreDigits.size()-1) == 8){
-                bg.drawImage(score8, 850, 100, null);
+                bg.drawImage(score8, 950, 100, null);
             }else {
-                bg.drawImage(score9, 850, 100, null);
+                bg.drawImage(score9, 950, 100, null);
             }
         }
         scoreDigits.clear();

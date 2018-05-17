@@ -3,7 +3,7 @@ import java.util.TimerTask;
 /**
  * Write a description of class AnimationRunner here.
  *
- * @author (your name)
+ * @author (your name)qer
  * @version (a version number or a date)
  */
 public class Game
