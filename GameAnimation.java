@@ -1095,86 +1095,81 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         if(q){
             bg.fillRect(100,768-150,100,20);
             g2.drawImage(picture, 100, 120, this);
-            if(y<yNow+500){
-                if(preciseQ.equals("excellent")){
-                    g2.drawImage(excellent, 100, 650, this);
-                }
-                else if(preciseQ.equals("great")){
-                    g2.drawImage(great, 100, 650, this);
-                }
-                else if(preciseQ.equals("good")){
-                    g2.drawImage(good, 100, 650, this);
-                }
-                else if(preciseQ.equals("bad")){
-                    g2.drawImage(bad, 100, 650, this);
-                }
-                else if(preciseQ.equals("miss")){
-                    g2.drawImage(miss, 100, 650, this);
-                }
+            if(preciseQ.equals("excellent")){
+                g2.drawImage(excellent, 100, 650, this);
+            }
+            else if(preciseQ.equals("great")){
+                g2.drawImage(great, 100, 700, this);
+            }
+            else if(preciseQ.equals("good")){
+                g2.drawImage(good, 100, 650, this);
+            }
+            else if(preciseQ.equals("bad")){
+                g2.drawImage(bad, 100, 650, this);
+            }
+            else if(preciseQ.equals("miss")){
+                g2.drawImage(miss, 100, 700, this);
             }
         }
         if(w){
             bg.fillRect(200,768-150,100,20);
             g2.drawImage(picture, 200, 120, this);
-            if(y<yNow+500){
-                if(preciseW.equals("excellent")){
-                    g2.drawImage(excellent, 200, 700, this);
-                }
-                else if(preciseW.equals("great")){
-                    g2.drawImage(great, 200, 650, this);
-                }
-                else if(preciseW.equals("good")){
-                    g2.drawImage(good, 200, 650, this);
-                }
-                else if(preciseW.equals("bad")){
-                    g2.drawImage(bad, 200, 650, this);
-                }
-                else if(preciseW.equals("miss")){
-                    g2.drawImage(miss, 200, 650, this);
-                }
+            if(preciseW.equals("excellent")){
+                g2.drawImage(excellent, 200, 700, this);
             }
+            else if(preciseW.equals("great")){
+                g2.drawImage(great, 200, 650, this);
+            }
+            else if(preciseW.equals("good")){
+                g2.drawImage(good, 200, 700, this);
+            }
+            else if(preciseW.equals("bad")){
+                g2.drawImage(bad, 200, 650, this);
+            }
+            else if(preciseW.equals("miss")){
+                g2.drawImage(miss, 200, 650, this);
+            }
+
         }
         if(e){
             bg.fillRect(300,768-150,100,20);
             g2.drawImage(picture, 300, 120, this);
-            if(y<yNow+500){
-                if(preciseE.equals("excellent")){
-                    g2.drawImage(excellent, 300, 650, this);
-                }
-                else if(preciseE.equals("great")){
-                    g2.drawImage(great, 300, 650, this);
-                }
-                else if(preciseE.equals("good")){
-                    g2.drawImage(good, 300, 650, this);
-                }
-                else if(preciseE.equals("bad")){
-                    g2.drawImage(bad, 300, 650, this);
-                }
-                else if(preciseE.equals("miss")){
-                    g2.drawImage(miss, 300, 650, this);
-                }
+            if(preciseE.equals("excellent")){
+                g2.drawImage(excellent, 300, 650, this);
             }
+            else if(preciseE.equals("great")){
+                g2.drawImage(great, 300, 700, this);
+            }
+            else if(preciseE.equals("good")){
+                g2.drawImage(good, 300, 650, this);
+            }
+            else if(preciseE.equals("bad")){
+                g2.drawImage(bad, 300, 650, this);
+            }
+            else if(preciseE.equals("miss")){
+                g2.drawImage(miss, 300, 700, this);
+            }
+
         }
         if(r){
             bg.fillRect(400,768-150,100,20);
             g2.drawImage(picture, 400, 120, this);
-            if(y<yNow+500){
-                if(preciseR.equals("excellent")){
-                    g2.drawImage(excellent, 400, 700, this);
-                }
-                else if(preciseR.equals("great")){
-                    g2.drawImage(great, 400, 650, this);
-                }
-                else if(preciseR.equals("good")){
-                    g2.drawImage(good, 400, 650, this);
-                }
-                else if(preciseR.equals("bad")){
-                    g2.drawImage(bad, 400, 650, this);
-                }
-                else if(preciseR.equals("miss")){
-                    g2.drawImage(miss, 400, 650, this);
-                }
+            if(preciseR.equals("excellent")){
+                g2.drawImage(excellent, 400, 700, this);
             }
+            else if(preciseR.equals("great")){
+                g2.drawImage(great, 400, 650, this);
+            }
+            else if(preciseR.equals("good")){
+                g2.drawImage(good, 400, 700, this);
+            }
+            else if(preciseR.equals("bad")){
+                g2.drawImage(bad, 400, 650, this);
+            }
+            else if(preciseR.equals("miss")){
+                g2.drawImage(miss, 400, 650, this);
+            }
+
         }
 
         //draw the picture
