@@ -1170,7 +1170,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
                 g2.drawImage(miss, 400, 650, this);
             }
 
-        }
+        }   
 
         //draw the picture
         for (int i=startCoord1;i<coord1.length();i++){
@@ -1377,7 +1377,7 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         }
         scoreDigits.clear();
         x+=xInc;
-        y+=1.0029;
+        y+=1.0025;
 
         //Progress Bar
         bg.setColor(Color.BLACK);
