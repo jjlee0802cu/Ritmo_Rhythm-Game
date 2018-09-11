@@ -8,10 +8,8 @@ import java.util.TimerTask;
  */
 public class Game
 {
-
     public static void main(String[] args) throws Exception
     {
-        
         long offset = 0;
         
         GameAnimation app = new GameAnimation();
