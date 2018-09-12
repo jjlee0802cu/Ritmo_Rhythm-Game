@@ -1,8 +1,8 @@
 Ritmo: Rhythm-Game
 ===
 
-Authors
----
+**Authors**
+
 Justin Lee, Daniel Tao, Malachi Tzuoo
 
 Project Description
