@@ -4,7 +4,7 @@ Two colleagues and I created a custom rhythm video game in which the player must
 
 In the Works
 ---
-We are working on implementing an open-source design in which players can import their own songs and level designs into the game. The game will then 
+We are working on implementing an open-source design in which players can import their own songs and level designs into the game.
 
 **Authors**
 : Justin Lee, Daniel Tao, Malachi Tzuoo
