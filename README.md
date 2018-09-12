@@ -6,5 +6,5 @@ In the Works
 ---
 We are working on implementing an open-source design in which players can import their own songs and level designs into the game.
 
-**Authors**
-: Justin Lee, Daniel Tao, Malachi Tzuoo
+### Authors: ###
+Justin Lee, Daniel Tao, Malachi Tzuoo
