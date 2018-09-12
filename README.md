@@ -1,4 +1,4 @@
-#Heading
+#HEADING
 PROJECT TITLE: Ritmo_Rhythm-Game
 AUTHORS: Justin Lee, Daniel Tao, Malachi Tzuoo
 
