@@ -1,6 +1,5 @@
 Ritmo: Rhythm-Game
 ===
----
 
 Authors
 ---
