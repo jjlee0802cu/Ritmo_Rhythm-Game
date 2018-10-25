@@ -11,7 +11,7 @@ Controls: Q W E R for the 4 note-lanes
 
 In the Works
 ---
-We are working on implementing an open-source design in which players can import their own songs and level designs into the game.
+We are working on implementing a streamlined user interface to introduce an open-source design in which players can import their own songs and level designs into the game.
 
 ### Authors: ###
 Justin Lee, Daniel Tao, Malachi Tzuoo
