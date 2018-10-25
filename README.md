@@ -4,6 +4,7 @@ Two colleagues and I created a custom rhythm video game in which the player must
 
 How to Play
 ---
+Run the Game.java class
 Controls: Q W E R for the 4 note-lanes
 
 
