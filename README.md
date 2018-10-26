@@ -6,7 +6,9 @@ How to Play
 ---
 Run the Game.java class
 
-Controls: Q W E R for the 4 note-lanes
+Playing requires nothing more than a sense of the rhythm, a small degree of patience, and dexterity.
+
+Controls: Q W E R buttons for the 4 note-lanes
 
 
 In the Works
