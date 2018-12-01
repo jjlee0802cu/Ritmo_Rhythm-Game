@@ -1,4 +1,3 @@
-//
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.Applet;
@@ -1026,16 +1025,16 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
         paint(g);
     }
 
-    private Image score0 = new ImageIcon("default-0.png").getImage();
-    private Image score1 = new ImageIcon("default-1.png").getImage();
-    private Image score2 = new ImageIcon("default-2.png").getImage();
-    private Image score3 = new ImageIcon("default-3.png").getImage();
-    private Image score4 = new ImageIcon("default-4.png").getImage();
-    private Image score5 = new ImageIcon("default-5.png").getImage();
-    private Image score6 = new ImageIcon("default-6.png").getImage();
-    private Image score7 = new ImageIcon("default-7.png").getImage();
-    private Image score8 = new ImageIcon("default-8.png").getImage();
-    private Image score9 = new ImageIcon("default-9.png").getImage();
+    private Image score0 = new ImageIcon("./Numerals/default-0.png").getImage();
+    private Image score1 = new ImageIcon("./Numerals/default-1.png").getImage();
+    private Image score2 = new ImageIcon("./Numerals/default-2.png").getImage();
+    private Image score3 = new ImageIcon("./Numerals/default-3.png").getImage();
+    private Image score4 = new ImageIcon("./Numerals/default-4.png").getImage();
+    private Image score5 = new ImageIcon("./Numerals/default-5.png").getImage();
+    private Image score6 = new ImageIcon("./Numerals/default-6.png").getImage();
+    private Image score7 = new ImageIcon("./Numerals/default-7.png").getImage();
+    private Image score8 = new ImageIcon("./Numerals/default-8.png").getImage();
+    private Image score9 = new ImageIcon("./Numerals/default-9.png").getImage();
     private Image excellent = new ImageIcon("excellent.png").getImage();
     private Image great = new ImageIcon("great.png").getImage();
     private Image good = new ImageIcon("good.png").getImage();
