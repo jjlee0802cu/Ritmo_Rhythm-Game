@@ -1035,11 +1035,11 @@ public class GameAnimation extends Applet implements ActionListener, KeyListener
     private Image score7 = new ImageIcon("./Numerals/default-7.png").getImage();
     private Image score8 = new ImageIcon("./Numerals/default-8.png").getImage();
     private Image score9 = new ImageIcon("./Numerals/default-9.png").getImage();
-    private Image excellent = new ImageIcon("excellent.png").getImage();
-    private Image great = new ImageIcon("great.png").getImage();
-    private Image good = new ImageIcon("good.png").getImage();
-    private Image bad = new ImageIcon("bad.png").getImage();
-    private Image miss = new ImageIcon("miss.png").getImage();
+    private Image excellent = new ImageIcon("./HitFeedback/excellent.png").getImage();
+    private Image great = new ImageIcon("./HitFeedback/great.png").getImage();
+    private Image good = new ImageIcon("./HitFeedback/good.png").getImage();
+    private Image bad = new ImageIcon("./HitFeedback/bad.png").getImage();
+    private Image miss = new ImageIcon("./HitFeedback/miss.png").getImage();
     private Image pBarEmpty = new ImageIcon("scorebar-bg.png").getImage();
     private Image pBarFull = new ImageIcon("scorebar-colour.png").getImage();
 
