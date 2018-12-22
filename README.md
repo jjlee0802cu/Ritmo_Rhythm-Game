@@ -16,4 +16,4 @@ In the Works
 We are working on implementing a streamlined user interface to introduce an open-source design in which players can import their own songs and level designs into the game.
 
 ### Authors: ###
-Co-creators: Justin Lee, Daniel Tao, Malachi Tzuoo
+Co-creators: Justin Lee
