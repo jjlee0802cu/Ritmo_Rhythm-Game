@@ -21,7 +21,7 @@ public class Block{
 	 */
 	public Block(int yCoord) {
 		
-		this.yCoord = 0;
+		this.yCoord = yCoord;
 
 		blockRectangle = new Rectangle2D.Double(xCoord, yCoord, BLOCKWIDTH, BLOCKHEIGHT);
 	}
@@ -31,7 +31,9 @@ public class Block{
 	 * @param g Graphics that will be drawn
 	 */
 	public void paint(Graphics g) {
-		g.setColor(Color.GRAY);
+		g.setColor(new Color(150, 150, 150, 50));
+		g.fillRect((int) blockRectangle.getX(), (int) blockRectangle.getY(), (int) blockRectangle.getWidth(), (int) blockRectangle.getHeight());
+		g.setColor(Color.WHITE);
 		g.drawRect((int) blockRectangle.getX(), (int) blockRectangle.getY(), (int) blockRectangle.getWidth(), (int) blockRectangle.getHeight());
 		
 	}
@@ -43,7 +45,7 @@ public class Block{
 	 * @param windowWidth The window width of the applet
 	 * @param windowHeight The window height of the applet
 	 */
-	public void translate(int dy) {
+	public void translate(double dy) {
 		yCoord += dy;
 		
 		blockRectangle = new Rectangle2D.Double(xCoord, yCoord, blockRectangle.getWidth(), blockRectangle.getHeight());
@@ -55,6 +57,10 @@ public class Block{
 	 */
 	public void setRectangleXCoord(int inXCoord) {
 		xCoord = inXCoord;
+	}
+	
+	public Rectangle2D getRectangle() {
+		return blockRectangle;
 	}
 	
 	private int xCoord;

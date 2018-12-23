@@ -32,7 +32,7 @@ public class Column {
 	 */
 	public void paint(Graphics g) {
 		for(Block block : column) {
-			block.setRectangleXCoord(columnNumber * COLUMNWIDTH);
+			block.setRectangleXCoord(100 + columnNumber * COLUMNWIDTH);
 			block.paint(g);
 		}
 //		if(collisionDetected) {
@@ -51,7 +51,7 @@ public class Column {
 	 * @param windowWidth The window width of the applet
 	 * @param windowHeight The window height of the applet
 	 */
-	public void translate(int dy) {
+	public void translate(double dy) {
 		for(Block block : column) {
 			block.translate(dy);
 		}
