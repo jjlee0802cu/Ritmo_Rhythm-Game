@@ -32,20 +32,20 @@ public class Playground extends Applet {
 		
 	   
 		
-		for(int i = 0; i < 4; i++) {
-			collection1.add(new Block((int) (Math.random() * 200)));
+		for(int i = 0; i < 3; i++) {
+			column1.add(new Block((int) (Math.random() * 200)));
 		}
 		
-		for(int i = 0; i < 4; i++) {
-			collection2.add(new Block((int) (Math.random() * 200)));
+		for(int i = 0; i < 3; i++) {
+			column2.add(new Block((int) (Math.random() * 200)));
 		}
 		
-		for(int i = 0; i < 4; i++) {
-			collection3.add(new Block((int) (Math.random() * 200)));
+		for(int i = 0; i < 3; i++) {
+			column3.add(new Block((int) (Math.random() * 200)));
 		}
 		
-		for(int i = 0; i < 4; i++) {
-			collection4.add(new Block((int) (Math.random() * 200)));
+		for(int i = 0; i < 3; i++) {
+			column4.add(new Block((int) (Math.random() * 200)));
 		}
 		createTimer();
 	}
@@ -64,10 +64,10 @@ public class Playground extends Applet {
 //		bufferedGraphics.setColor(new Color(200, 200, 200));
 		bufferedGraphics.fillRect(50, 50, getWidth() - 100, getHeight() - 100);
 		
-		collection1.paint(bufferedGraphics);
-		collection2.paint(bufferedGraphics);
-		collection3.paint(bufferedGraphics);
-		collection4.paint(bufferedGraphics);
+		column1.paint(bufferedGraphics);
+		column2.paint(bufferedGraphics);
+		column3.paint(bufferedGraphics);
+		column4.paint(bufferedGraphics);
 				
 		g.drawImage(overlayImage, 0, 0, this);
 		
@@ -132,22 +132,18 @@ public class Playground extends Applet {
 	 * Timer stops. 
 	 */
 	private void createTimer() {
-		htmlDelay = Integer.parseInt(getParameter("delay"));
-		appletTimer = new Timer(htmlDelay, new ActionListener() {
+		appletTimer = new Timer(0, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if(start) {
-					startTime = System.currentTimeMillis();
-					start = false;
-				}
-				long elapsedTime = System.currentTimeMillis() - startTime;
-				System.out.println(elapsedTime);
+				
+				long elapsedTime = System.currentTimeMillis() - currentTime;
+				int translation = (int) (elapsedTime / 3.0);
 				
 				
-				collection1.translate();
-				collection2.translate();
-				collection3.translate();
-				collection4.translate();
+				column1.translate(translation);
+				column2.translate(translation);
+				column3.translate(translation);
+				column4.translate(translation);
 				
 //				if(collection.getCollisionDetected()) {
 //					noEventStartTime = System.currentTimeMillis();
@@ -159,7 +155,7 @@ public class Playground extends Applet {
 //					stop();
 //				}	
 				repaint();
-				
+				currentTime = System.currentTimeMillis();
 			}
 		});
 	}
@@ -170,10 +166,10 @@ public class Playground extends Applet {
 	private ArrayList<Integer> htmlFontSizes = new ArrayList<Integer>();
 	
 	private Rectangle2D throwRectangle;
-	private BlockCollection collection1 = new BlockCollection(1);
-	private BlockCollection collection2 = new BlockCollection(2);
-	private BlockCollection collection3 = new BlockCollection(3);
-	private BlockCollection collection4 = new BlockCollection(4);
+	private Column column1 = new Column(1);
+	private Column column2 = new Column(2);
+	private Column column3 = new Column(3);
+	private Column column4 = new Column(4);
 	
 	
 	private int htmlDelay;
@@ -183,7 +179,7 @@ public class Playground extends Applet {
 	private boolean gameOver = false;
 	
 	private boolean start = true;
-	private long startTime;
+	private long currentTime = System.currentTimeMillis();;
 	
 	private Image img = Toolkit.getDefaultToolkit().createImage("background.jpg");
 }

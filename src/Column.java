@@ -7,12 +7,12 @@ import java.util.ArrayList;
  * @author Justin Lee jjl2245.
  *
  */
-public class BlockCollection {
+public class Column {
 	
 	/**
 	 * Constructs a ThrowCollection
 	 */
-	public BlockCollection(int columnNumber) {
+	public Column(int columnNumber) {
 		this.columnNumber = columnNumber;
 		column = new ArrayList<Block>();
 	}
@@ -51,9 +51,9 @@ public class BlockCollection {
 	 * @param windowWidth The window width of the applet
 	 * @param windowHeight The window height of the applet
 	 */
-	public void translate() {
+	public void translate(int dy) {
 		for(Block block : column) {
-			block.translate();
+			block.translate(dy);
 		}
 		//checkCollision();
 	}

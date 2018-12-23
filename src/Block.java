@@ -21,9 +21,7 @@ public class Block{
 	 */
 	public Block(int yCoord) {
 		
-		this.yCoord = yCoord;
-		dx = 0;
-		dy = -1;
+		this.yCoord = 0;
 
 		blockRectangle = new Rectangle2D.Double(xCoord, yCoord, BLOCKWIDTH, BLOCKHEIGHT);
 	}
@@ -45,9 +43,8 @@ public class Block{
 	 * @param windowWidth The window width of the applet
 	 * @param windowHeight The window height of the applet
 	 */
-	public void translate() {
-		xCoord += dx;
-		yCoord -= dy;
+	public void translate(int dy) {
+		yCoord += dy;
 		
 		blockRectangle = new Rectangle2D.Double(xCoord, yCoord, blockRectangle.getWidth(), blockRectangle.getHeight());
 	}
