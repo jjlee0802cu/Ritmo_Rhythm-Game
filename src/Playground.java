@@ -3,7 +3,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 /**
@@ -22,24 +27,25 @@ public class Playground extends Applet {
 	 * into a ThrowCollection, and creates the Timer associated with this Playground.
 	 */
 	public void init() {
-		Graphics2D g2D = (Graphics2D) getGraphics();	
-		overlayImage = createImage(getWidth(), getHeight());
-		bufferedGraphics = overlayImage.getGraphics();
+		
+		
+		
+	   
 		
 		for(int i = 0; i < 4; i++) {
-			collection1.add(new Block((int) (Math.random() * 100)));
+			collection1.add(new Block((int) (Math.random() * 200)));
 		}
 		
 		for(int i = 0; i < 4; i++) {
-			collection2.add(new Block((int) (Math.random() * 100)));
+			collection2.add(new Block((int) (Math.random() * 200)));
 		}
 		
 		for(int i = 0; i < 4; i++) {
-			collection3.add(new Block((int) (Math.random() * 100)));
+			collection3.add(new Block((int) (Math.random() * 200)));
 		}
 		
 		for(int i = 0; i < 4; i++) {
-			collection4.add(new Block((int) (Math.random() * 100)));
+			collection4.add(new Block((int) (Math.random() * 200)));
 		}
 		createTimer();
 	}
@@ -51,15 +57,18 @@ public class Playground extends Applet {
 	 * pauses the Playground's associated Timer.
 	 */
 	public void paint(Graphics g) {
-		
+		Image overlayImage = createImage(getWidth(), getHeight());
+		Graphics bufferedGraphics = overlayImage.getGraphics();
 		bufferedGraphics.clearRect(0, 0, getWidth(), getHeight());
+
+//		bufferedGraphics.setColor(new Color(200, 200, 200));
+		bufferedGraphics.fillRect(50, 50, getWidth() - 100, getHeight() - 100);
 		
 		collection1.paint(bufferedGraphics);
 		collection2.paint(bufferedGraphics);
 		collection3.paint(bufferedGraphics);
 		collection4.paint(bufferedGraphics);
 				
-		
 		g.drawImage(overlayImage, 0, 0, this);
 		
 //		if(collection.getCollisionDetected() && !collection.getTieCollisionDetected()) {
@@ -76,7 +85,7 @@ public class Playground extends Applet {
 	 * Updates the Playground by painting the components of the Playground.
 	 */
 	public void update(Graphics g) {
-		paint(g);		
+		paint(g);
 	}
 
 	/**
@@ -115,19 +124,7 @@ public class Playground extends Applet {
 		start();
 	}
 	
-	/*
-	 * Initializes all font details as specified by the html and saves it in a data structure for easy future reference.
-	 */
-	private void initializeFontDetails() {
-		htmlThrowNames = getParameter("throw").split(",");
-//		for(int i = 0; i < Rules.getTHROWS().length; i++) {
-//			htmlFontNames.add(getParameter("fontname").split(",")[i]);
-//			String colorHexCode = getParameter("fontcolor").split(",")[i];
-//			htmlFontColors.add(Color.decode(colorHexCode));
-//			htmlFontSizes.add(Integer.parseInt(getParameter("fontsize").split(",")[i]));			
-//		}
-	}
-	
+
 	/*
 	 * Creates a Timer associated with the Playground, which translates the ThrowCollection associated with the Playground
 	 * at time intervals specified by the html. 
@@ -138,7 +135,15 @@ public class Playground extends Applet {
 		htmlDelay = Integer.parseInt(getParameter("delay"));
 		appletTimer = new Timer(htmlDelay, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				if(start) {
+					startTime = System.currentTimeMillis();
+					start = false;
+				}
+				long elapsedTime = System.currentTimeMillis() - startTime;
+				System.out.println(elapsedTime);
+				
+				
 				collection1.translate();
 				collection2.translate();
 				collection3.translate();
@@ -177,6 +182,8 @@ public class Playground extends Applet {
 	private long noEventStartTime = System.currentTimeMillis();
 	private boolean gameOver = false;
 	
-	private Image overlayImage;
-	private Graphics bufferedGraphics;
+	private boolean start = true;
+	private long startTime;
+	
+	private Image img = Toolkit.getDefaultToolkit().createImage("background.jpg");
 }

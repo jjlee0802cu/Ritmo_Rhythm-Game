@@ -33,7 +33,7 @@ public class Block{
 	 * @param g Graphics that will be drawn
 	 */
 	public void paint(Graphics g) {
-		g.setColor(Color.BLACK);
+		g.setColor(Color.GRAY);
 		g.drawRect((int) blockRectangle.getX(), (int) blockRectangle.getY(), (int) blockRectangle.getWidth(), (int) blockRectangle.getHeight());
 		
 	}
