@@ -26,6 +26,20 @@ public class Playground extends Applet {
 			columnCollection.add(column);
 		}
 
+		
+		
+		Beatmap currentLevel;
+		try {
+			currentLevel = new Beatmap("beatmap.osu");
+	        Coordinates coord1 = currentLevel.getMap().get(0);
+	        Coordinates coord2 = currentLevel.getMap().get(1);
+	        Coordinates coord3 = currentLevel.getMap().get(2);
+	        Coordinates coord4 = currentLevel.getMap().get(3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 		createTimer();
 	}
 
